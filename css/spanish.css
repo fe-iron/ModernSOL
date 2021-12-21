@@ -1,0 +1,231 @@
+*,html,body {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    position: relative;
+    
+}
+
+
+.spanish-banner{
+    background-image: url("../images/slider-2.jpg");
+    background-position:center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 1;
+}
+
+.spanish-banner:after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+    background-color:#00000085;
+    z-index: -1;
+}
+
+.spanish_inner_content{
+    padding: 8rem 0rem;
+    z-index: 1000;
+    color: white;
+}
+
+
+.spanish_inner_content h2{
+    font-size: 50px;
+    position: relative;
+    display: inline-block;
+    margin: 25px 0px;
+}
+
+.spanish_inner_content h2:after{
+    content: "";
+    position: absolute;
+    background-color: #ffb700cc;
+    width: 44px;
+    height: 4px;
+    bottom: -10px;
+    left:0;
+}
+
+
+.spanish_inner_content p{
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.spanish_content{
+    padding: 3rem 0rem;
+    
+}
+
+
+.why_learn_spanish{
+    padding: 3rem 0rem;
+    background-color: #ffb7003b;
+
+}
+
+
+.text-yellow {
+    color: #ffb700;
+}
+
+
+.why-learn-spanish-content{
+    margin-bottom:25px;
+}
+/* .spanish_content .img_part{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+} */
+
+
+
+.career_job{
+    padding: 3rem 0rem;
+}
+
+
+
+.scop {
+    padding: 3rem 0rem;
+    background-color: #ffb7003b;
+}
+
+.scop .col-md p{
+    display: flex;
+    align-items: center;
+}
+.scop img{
+    width: 20px;
+    margin-right: 10px;
+}
+
+
+
+
+
+
+
+
+.languages-logo {
+    padding: 3rem 0rem;
+    background-color: #ffb7003b;
+}
+
+
+/* .languages-logo{
+    margin-bottom: 2rem;
+} */
+
+.languages-logo .card{
+    border: 0rem;
+}
+
+.languages-logo .col-md a{
+    text-decoration: none;
+    color: black;
+}
+
+.languages-logo img{
+        width: 100px;
+        margin: 15px auto;
+}
+
+
+.languages-logo .card-body{
+    text-align: center;
+    flex: 1 1 auto;
+    padding: 0rem 1.2rem 1rem 1.2rem;
+    }
+
+
+.languages-logo .card-body p{
+    padding-top: 1rem;
+}
+
+.why-learn{
+    padding: 3rem 0rem;
+}
+
+
+.why-learn .card{
+    border: none;
+    -webkit-box-shadow: 9px 11px 14px 0 rgb(0 0 0 / 10%);
+    box-shadow: 0px 2px 16px 0 rgb(0 0 0 / 10%);
+    /* padding-top: 6px; */
+    
+}
+
+.why-learn h5 ,.text-yellow , .languages-logo h5{
+    color: #ffb700;
+}
+
+
+
+
+
+
+
+
+
+
+
+.mission_vsion{
+    background-image: url("../images/mission_bg.jpg");
+    background-position:center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+    padding: 3rem 0rem;
+
+}
+
+
+.mission_vsion h4{
+    color: #fbba04;
+    z-index: 100;
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+
+
+.mission_vsion:after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+    background-color:#00000085;
+    z-index: 1;
+}
+
+.mission_vision_inner{
+    z-index: 100;
+    color: white;
+}
+
+
+.mission_vsion p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* font-weight: 600; */
+    letter-spacing: .8px;
+}
+
+.mission_vsion img{
+    margin-right: 10px;
+    background-color: white;
+    padding: .4rem;
+    border-radius: 44px;
+    height: 40px;
+}

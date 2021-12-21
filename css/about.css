@@ -1,0 +1,285 @@
+*,html,body {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    position: relative;
+    
+}
+
+
+.about-banner{
+    background-image: url("../images/slider-2.jpg");
+    background-position:center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 1;
+}
+
+
+
+
+.about-banner:after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+    background-color:#00000085;
+    z-index: -1;
+}
+
+.banner_inner_content{
+    padding: 8rem 0rem;
+    z-index: 1000;
+    color: white;
+}
+
+
+.banner_inner_content h2{
+    font-size: 50px;
+    position: relative;
+    display: inline-block;
+    margin: 25px 0px;
+}
+
+.banner_inner_content h2:after{
+    content: "";
+    position: absolute;
+    background-color: #ffb700cc;
+    width: 44px;
+    height: 4px;
+    bottom: -10px;
+    left:0;
+}
+
+
+.banner_inner_content p{
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.about_content{
+    padding: 3rem 0rem;
+    
+}
+
+.about_content .img_part{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+
+
+
+
+
+
+.languages-logo {
+    padding: 3rem 0rem;
+    background-color: #ffb7003b;
+}
+
+
+/* .languages-logo{
+    margin-bottom: 2rem;
+} */
+
+.languages-logo .card{
+    border: 0rem;
+}
+
+.languages-logo .col-md a{
+    text-decoration: none;
+    color: black;
+}
+
+.languages-logo img{
+        width: 100px;
+        margin: 15px auto;
+}
+
+
+.languages-logo .card-body{
+    text-align: center;
+    flex: 1 1 auto;
+    padding: 0rem 1.2rem 1rem 1.2rem;
+    }
+
+
+.languages-logo .card-body p{
+    padding-top: 1rem;
+}
+
+.why-learn{
+    padding: 3rem 0rem;
+}
+
+
+.why-learn .card{
+    border: none;
+    -webkit-box-shadow: 9px 11px 14px 0 rgb(0 0 0 / 10%);
+    box-shadow: 0px 2px 16px 0 rgb(0 0 0 / 10%);
+    /* padding-top: 6px; */
+    
+}
+
+.why-learn h5 ,.text-yellow , .languages-logo h5{
+    color: #ffb700;
+}
+
+
+
+
+
+
+
+
+
+
+
+.mission_vsion{
+    /* background-image: url("../images/mission_bg.jpg");
+    background-position:center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative; */
+    padding: 3rem 0rem;
+
+}
+
+
+.mission_vsion h4{
+    color: #fbba04;
+    z-index: 100;
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+
+
+/* .mission_vsion:after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+    background-color:#00000085;
+    z-index: 1;
+} */
+
+.mission_vision_inner{
+    z-index: 100;
+    color: rgb(0, 0, 0);
+}
+
+
+.mission_vsion p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* font-weight: 600; */
+    letter-spacing: .8px;
+}
+
+.mission_vsion img{
+    margin-right: 10px;
+    background-color: white;
+    padding: .4rem;
+    border-radius: 44px;
+    height: 40px;
+}
+
+
+.faq{
+    padding: 3rem 0rem;
+}
+
+.accordion-item {
+    background-color: #fff;
+    border: 1px solid rgb(0 0 0 / 0%);
+    margin: 2rem 0rem;
+    box-shadow: 0px 0px 24px -11px rgba(0,0,0,0.30);
+-webkit-box-shadow: 0px 0px 24px -11px rgba(0,0,0,0.30);
+-moz-box-shadow: 0px 0px 24px -11px rgba(0,0,0,0.30);
+}
+
+.accordion-button:not(.collapsed) {
+    color: #ffffff;
+    background-color: #ffb700;
+    box-shadow: inset 0 -1px 0 rgb(0 0 0 / 13%);
+}
+
+
+.accordion-button::after {
+    flex-shrink: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-left: auto;
+    content: "";
+    background-image:url("../images/icons/icons-down.png") ;
+    background-repeat: no-repeat;
+    background-size: 1.25rem;
+    transition: transform .2s ease-in-out;
+}
+
+.accordion-button:not(.collapsed)::after {
+    background-image: url("../images/icons/icons8-down-24.png");
+    transform: rotate(
+-180deg);
+}
+
+.accordion-button:focus {
+    z-index: 3;
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: none;
+}
+
+.accordion-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 1.25rem;
+    font-size: 1rem;
+    color: #ffb700;
+    text-align: left;
+    background-color: #fff;
+    border: 0;
+    border-radius: 0;
+    overflow-anchor: none;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out,border-radius .15s ease;
+}
+
+.accordion-body {
+    padding: 1rem 1.25rem;
+}
+
+
+.methodology{
+    padding: 3rem 0rem;
+    background-color: #ffb7003b;
+}
+
+
+.language_proficiency{
+    padding: 3rem 0rem;
+}
+
+
+.language_proficiency .card {
+    text-align: start;
+    border: 0rem;
+}
+
+
+.language_proficiency .card-header{
+        background-color: #ffb700;
+        color: white;
+}

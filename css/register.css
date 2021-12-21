@@ -1,0 +1,109 @@
+*,html,body {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    position: relative;
+    
+}
+
+
+.register-banner{
+    background-image: url("../images/slider-2.jpg");
+    background-position:center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 1;
+}
+
+.register-banner:after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+    background-color:#00000085;
+    z-index: -1;
+}
+
+
+
+.register_inner_content{
+    padding: 8rem 0rem;
+    z-index: 1000;
+    color: white;
+}
+
+
+.register_inner_content h2{
+    font-size: 50px;
+    position: relative;
+    display: inline-block;
+    margin: 25px 0px;
+}
+
+.register_inner_content h2:after{
+    content: "";
+    position: absolute;
+    background-color: #ffb700cc;
+    width: 44px;
+    height: 4px;
+    bottom: -10px;
+    left:0;
+}
+
+
+.register_inner_content p{
+    color: #ffffff;
+    font-size: 20px;
+}
+
+
+.form-select {
+    display: block;
+    width: 100%;
+    padding: 0.999rem 2.25rem 0.999rem 0.75rem;
+    -moz-padding-start: calc(0.75rem - 3px);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #21252994;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+.form-control[type=file]:not(:disabled):not([readonly]) {
+    cursor: pointer;
+    padding: 1rem;
+}
+
+.form-control[type=file]:not(:disabled):not([readonly]) {
+    cursor: pointer;
+    padding: 1rem;
+}
+
+.form-control:focus {
+    color: #212529;
+    background-color: #fff;
+    border-color: #e7eb4dc7;
+    outline: 0;
+    box-shadow: none;
+}
+
+.form-select:focus {
+    border-color: #ffdf8e;
+    outline: 0;
+    box-shadow: none;
+}
+
+.register-form{
+    padding: 3rem 0rem;
+}

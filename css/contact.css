@@ -1,0 +1,135 @@
+*,html,body {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    position: relative;
+    
+}
+
+
+.contact-banner{
+    background-image: url("../images/slider-2.jpg");
+    background-position:center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 1;
+}
+
+.contact-banner:after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+    background-color:#00000085;
+    z-index: -1;
+}
+
+.contact_inner_content{
+    padding: 8rem 0rem;
+    z-index: 1000;
+    color: white;
+}
+
+
+.contact_inner_content h2{
+    font-size: 50px;
+    position: relative;
+    display: inline-block;
+    margin: 25px 0px;
+}
+
+.contact_inner_content h2:after{
+    content: "";
+    position: absolute;
+    background-color: #ffb700cc;
+    width: 44px;
+    height: 4px;
+    bottom: -10px;
+    left:0;
+}
+
+
+.contact_inner_content p{
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.contact_content{
+    padding: 3rem 0rem;
+    
+}
+
+
+.contact_content .contact-info{
+    display: flex;
+    align-items: center;
+}
+
+
+.contact_content .contact-info p{
+    margin-bottom: 0px;
+}
+.contact_content .contact-info .font-weight-bold{
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: black;
+}
+
+
+.contact_content .contact-info img{
+    height: 60px;
+    margin-right: 10px;
+    padding: 1rem;
+    background-color: #edebeb;
+    border-radius: 50%;
+    -webkit-box-shadow: 0px 1px 33px -11px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 1px 33px -11px rgba(0,0,0,0.75);
+box-shadow: 0px 1px 33px -11px rgba(0,0,0,0.75);
+}
+
+.contact_content .contact-info a{
+    text-decoration: none;
+}
+
+
+input[type="text"], input[type="tel"], input[type="email"] {
+    height: 3.2rem;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.form-select {
+    display: block;
+    width: 100%;
+    padding: 0.795rem 2.25rem 0.795rem 0.75rem;
+    -moz-padding-start: calc(0.75rem - 3px);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #6f7070;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 0rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
