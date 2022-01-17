@@ -2,18 +2,27 @@
    .navbar {
     padding: 0.6rem 2rem;
     background-color: white;
-    box-shadow: 0px 19px 46px -26px rgb(0 0 0 / 75%);
-    -webkit-box-shadow: 0px 19px 46px -40px rgb(0 0 0 / 75%);
-    -moz-box-shadow: 0px 19px 46px -26px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px -2px 14px -4px rgb(173 163 173);
+-moz-box-shadow: 0px -2px 14px -4px rgb(173 163 173);
+box-shadow: 0px -2px 14px -4px rgb(173 163 173);
     color: black;
 }
 
 
 .navbar-light .navbar-nav .nav-link {
-    color: rgb(145 144 141);
+    color: black;
     font-weight: bold;
     letter-spacing: .4px;
+    text-transform: uppercase;
 }
+
+
+.navbar-brand{
+  display: flex;
+  align-items: center;
+}
+
+
 
 .dropdown-item {
     display: block;
@@ -27,6 +36,7 @@
     white-space: nowrap;
     background-color: transparent;
     border: 0;
+    text-transform: uppercase;
 }
 
 .dropdown-menu {
@@ -52,12 +62,11 @@
 }
 
 .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
-    color: rgb(255 183 0);
+    color: rgb(177 80 80);
 }
-
 .dropdown-item:focus, .dropdown-item:hover {
     color: #ffffff;
-    background-color: #ffb700;
+    background-color: #c52437;
     font-weight: bold;
     letter-spacing: .4px;
 }
@@ -71,7 +80,17 @@
 
 
 .navbar-brand img{
-  width: 160px;
+  width: 65px;
+}
+
+
+.navbar-brand p {
+    font-size: 20px;
+    margin-left: 10px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: #10bcc5;
+    line-height: 1.2;
 }
 
 .navbar-text {
@@ -80,19 +99,20 @@
     /* padding-left: 1.3rem; */
 }
 
+
+
 /* .bg-light {
     --bs-bg-opacity: 1;
  --bs-light-rgb: none;
 } */
 
 .btn-info {
-  
-    background-color: #0099ff;
-    border-color: #0099ff;
+    background-color: #10bcc5;
+    border-color: #10bcc5;
     padding: 0.5rem 1rem;
     border-radius: 25px;
-    font-weight:600;
-    
+    font-weight: 600;
+    letter-spacing: 1.5px;
 }
 
 
@@ -102,6 +122,22 @@
   .navbar{
       padding: 0.6rem 0rem;
     }
+}
+
+
+@media(max-width:576px){
+
+  .navbar-brand img{
+       width: 50px;
+  }
+  .navbar-brand p {
+    font-size: 12px;
+    margin-left: 10px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: #10bcc5;
+    line-height: 1.2;
+}
 }
 
 
@@ -125,7 +161,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#"><img src="images/new_logo.png" alt=""></a>
+    <a class="navbar-brand" href="/"><img src="images/logo-2.png" alt=""><p class="mb-0">MODERN SCHOOL <br> OF LANGUAGES</p></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -153,7 +189,7 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="french.php"> <img src="images/french-logo.png" alt=""> French</a></li>
-            <li><a class="dropdown-item" href="german.php"> <img src="images/germen-logo.png" alt=""> Germen</a></li>
+            <li><a class="dropdown-item" href="german.php"> <img src="images/germen-logo.png" alt=""> German</a></li>
             <li><a class="dropdown-item" href="spanish.php"> <img src="images/spanish-logo.png" alt=""> Spanish</a></li>
           </ul>
         </li>
@@ -168,11 +204,17 @@
           </ul>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="career.php">Career</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="contact.php">Contact</a>
         </li>
       </ul>
       <span class="navbar-text">
-        <a href="register.php" class="btn btn-dark text-white">Register!!</a>
+        <a href="register.php" class="btn btn-info text-white">REGISTER</a>
+      </span>
+      <span class="navbar-text">
+        <a href="user-profile/" class="btn btn-info text-white">Login</a>
       </span>
     </div>
   </div>

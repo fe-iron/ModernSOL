@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
+    <title>French || Language</title>
     <link rel="stylesheet" href="css/french.css" />
 </head>
 
@@ -31,7 +31,7 @@
             <div class="row">
                 <div class="col-md">
                     <h4 class="mb-1">Learn French With Us</h4>
-                    <p>Learn a new language of your choice from the comfort of your home.</p>
+                    <p>Learn a language of your choice from the comfort of your home.</p>
                     <p>At Modern School of Languages, Our aim is to provide you with the best possible learning environment at our school. Our team boasts of rich and varied experience in evolving the face of education at school and collegiate level. SOL is led by a group of young as well as experienced industry expert and teachers. The team is well equipped by research, IT infrastructure, product’s knowledge and domain expertise. We at MSOL, keep ourselves familiar and updated with the needs, demands and practices of education at large.</p>
                     <p>We offer comprehensive online and offline Spanish, German and French classes focusing on more than just grammar and vocabulary. Our languages courses cover useful topics like ‘Life abroad’ so you can learn to speak confidently in any situation.</p>
                 </div>
@@ -79,7 +79,7 @@
         </div>
     </section>
     
-    <section class="career_job">
+    <!-- <section class="career_job">
         <div class="container">
             <h2 class="text-center mb-4">Career and Job Opportunities</h2>
             <div class="row">
@@ -92,7 +92,9 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
+
+    <section class="line_1"></section>
 
     <section class="scop">
         <div class="container">
@@ -138,7 +140,7 @@
                                 <img src="images/learn-images2.jpg" alt="" class="mt-3">
                                 <div class="card-body">
                                     <h5>Small groups or private classes</h5>
-                                    <p>8 to 10 students so you can practice speaking and get feedback</p>
+                                    <p>6 to 8 students so you can practice speaking and get feedback</p>
                                 </div>
                             </div>
                         </div>
@@ -164,7 +166,7 @@
                             <div class="card">
                                 <img src="images/learn-images5.jpg" alt="" class="mt-3">
                                 <div class="card-body">
-                                    <h5>LQuick Progress</h5>
+                                    <h5>Quick Progress</h5>
                                     <p>Taught with a communicative and interactive approach</p>
                                 </div>
                             </div>
@@ -326,6 +328,8 @@
         $('.owl-carousel').owlCarousel({
             loop: true,
             margin: 10,
+            autoplay: true,
+            autoplayTimeout: 2000,
             nav: false,
             responsive: {
                 0: {

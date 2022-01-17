@@ -43,17 +43,17 @@
     </section> -->
 
     <section class="languages-logo">
-        <h2 class="text-center mb-1">Course Details</h2>
-        <p class="text-center mb-4 text-yellow">Learn a new language of your choice from the comfort of your home.</p>
+        <h2 class="text-center mb-1 text-white">Our Language Courses</h2>
+        <p class="text-center mb-4 text-white">Learn a language of your choice from the comfort of your home.</p>
         <div class="container">
             <div class="row">
                 <div class="col-md mb-3">
                     <a href="">
-                        <div class="card">
+                        <div class="card german">
                             <img src="images/germen-logo.png" alt="germen logo">
                             <div class="card-body">
                                 <h5>German Language Course</h5>
-                                <p>German is one of the major languages of the world. It is the most spoken native language within the European Union.Germen language is mainly spkoken in central Europe.</p>
+                                <p class="text-white">German is one of the major languages of the world. It is the most spoken native language within the European Union.Germen language is mainly spkoken in central Europe.</p>
                             </div>
                         </div>
                     </a>
@@ -71,7 +71,7 @@
                 </div>
                 <div class="col-md mb-3">
                     <a href="">
-                        <div class="card">
+                        <div class="card spanish">
                             <img src="images/spanish-logo.png" alt="spanish logo">
                             <div class="card-body">
                                 <h5>Spanish Language Course</h5>
@@ -83,6 +83,8 @@
             </div>
         </div>
     </section>
+
+    <section class="line"></section>
 
     <!-- <section class="why-learn">
         <div class="container">

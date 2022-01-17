@@ -157,7 +157,7 @@
             <div class="row mission_vision_inner">
                 <div class="col-md">
 
-                    <p><span><img src="images/check_mark.png" alt=""></span>Our mission is to empower not only college and school students but busiest people to master a language and unlock their potential- anytime anywhere.</p>
+                    <p><span><img src="images/check_mark.png" alt=""></span>Our mission is to empower not only college and school students but busiest people to master a language and unlock their potential- anytime, anywhere.</p>
                     <p><span><img src="images/check_mark.png" alt=""></span>Our goal as a school is to equip our young people with the skills and mindset to thrive and then take on the world.</p>
                     <p><span><img src="images/check_mark.png" alt=""></span>MSOL prepares students to understand, contribute, and succeed in a rapidly changing era.</p>
                     <p><span><img src="images/check_mark.png" alt=""></span>Empower our students to get the jobs in multiple sectors, earn a lot of money and succeed in their life. </p>
@@ -328,27 +328,7 @@
     <?php include_once 'inc/footer.php'; ?>
 
 
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-    <script src="owl-carousel/owl.carousel.min.js"></script>
-
-    <script>
-        $('.owl-carousel').owlCarousel({
-            loop: true,
-            margin: 10,
-            nav: false,
-            responsive: {
-                0: {
-                    items: 1
-                },
-                600: {
-                    items: 2
-                },
-                1000: {
-                    items: 3
-                }
-            }
-        })
-    </script>
+    
 
 </body>
 

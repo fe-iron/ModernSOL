@@ -31,12 +31,12 @@
             <div class="row">
                 <div class="col-md">
                     <h4 class="mb-1">Welcome To Modern School Of Languages</h4>
-                    <p>Learn a new language of your choice from the comfort of your home.</p>
+                    <p>Learn a language of your choice from the comfort of your home.</p>
                     <p>At Modern School of Languages, Our aim is to provide you with the best possible learning environment at our school. Our team boasts of rich and varied experience in evolving the face of education at school and collegiate level. SOL is led by a group of young as well as experienced industry expert and teachers. The team is well equipped by research, IT infrastructure, product’s knowledge and domain expertise. We at MSOL, keep ourselves familiar and updated with the needs, demands and practices of education at large.</p>
                     <p>We offer comprehensive online and offline Spanish, German and French classes focusing on more than just grammar and vocabulary. Our languages courses cover useful topics like ‘Life abroad’ so you can learn to speak confidently in any situation.</p>
                 </div>
                 <div class="col-md img_part">
-                    <img src="images/about.png" alt="" class="img-fluid">
+                    <img src="images/about-1.png" alt="" class="img-fluid">
                 </div>
             </div>
         </div>
@@ -328,28 +328,7 @@
     <?php include_once 'inc/footer.php'; ?>
 
 
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-    <script src="owl-carousel/owl.carousel.min.js"></script>
-
-    <script>
-        $('.owl-carousel').owlCarousel({
-            loop: true,
-            margin: 10,
-            nav: false,
-            responsive: {
-                0: {
-                    items: 1
-                },
-                600: {
-                    items: 2
-                },
-                1000: {
-                    items: 3
-                }
-            }
-        })
-    </script>
-
+    
 </body>
 
 </html>

@@ -158,7 +158,7 @@
                             <div class="card">
                                 <img src="images/learn-images5.jpg" alt="" class="mt-3">
                                 <div class="card-body">
-                                    <h5>LQuick Progress</h5>
+                                    <h5>Quick Progress</h5>
                                     <p>Taught with a communicative and interactive approach</p>
                                 </div>
                             </div>

@@ -177,7 +177,7 @@
 
     <section class="faq">
         <div class="container">
-            <h2 class="text-center mb-3">Frequently Asked Question</h2>
+            <h2 class="text-center text-danger mb-3">Frequently Asked Question</h2>
             <div class="row">
                 <div class="col-md-6">
                     <div class="accordion" id="accordionExample">
@@ -238,7 +238,7 @@
                             </h2>
                             <div id="collapsefive" class="accordion-collapse collapse" aria-labelledby="headingfive" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                    <strong>Answer :</strong> It depends on the type of course you have requested but normally you will study in a group of 7 to 9 students, approximately.
+                                    <strong>Answer :</strong> It depends on the type of course you have requested but normally you will study in a group of 6 to 8 students, approximately.
                                 </div>
                             </div>
                         </div>

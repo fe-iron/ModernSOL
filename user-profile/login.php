@@ -1,7 +1,49 @@
+<?php
+
+    include '../admin/connection.php';  
+    $conn = OpenCon();
+    session_start();
+
+    if (isset($_POST['email'])){
+        // removes backslashes
+        $username = stripslashes($_REQUEST['email']);
+            //escapes special characters in a string
+        $username = mysqli_real_escape_string($conn,$username);
+        $password = stripslashes($_REQUEST['password']);
+        $password = mysqli_real_escape_string($conn,$password);
+        //Checking is user existing in the database or not
+        $query = "SELECT * FROM `students` WHERE email='$username'
+            and password='".md5($password)."'";
+        $result = mysqli_query($conn,$query) or die(mysqli_error());
+        $rows = mysqli_num_rows($result);
+        
+        if($rows >= 1){
+            $query = "SELECT * FROM `students` WHERE email='$username' and is_password_set=1
+            and password='".md5($password)."'";
+            $result = mysqli_query($conn,$query) or die(mysqli_error());
+            $rows = mysqli_num_rows($result);
+            if($rows == 1){
+                $row = $result->fetch_assoc();
+                $_SESSION['username'] =  $row['fname'] . " " . $row['lname'];
+                $_SESSION['email'] = $row['email'];
+                header("Location: index.php");
+            }else{
+                $_SESSION['error'] = "Password has not set yet, create a new password!";
+            }
+            
+        }else{
+            $_SESSION['error'] = "Email / Password does not match!";
+        }
+    }
+?>
+
 <?php include_once'inc/head.php'; ?>
 <link rel="stylesheet" href="../bootstrap5-cdn/css/bootstrap.min.css">
+
     
 <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
 .content{
     margin-left: 0px;
 }
@@ -10,6 +52,12 @@
 
 .bg-warning{
     background-color: #ffb700!important;
+}
+
+
+
+body{
+    font-family: 'Roboto Slab', serif;
 }
 
 
@@ -43,14 +91,11 @@
     <section>
 
 <div class="content">
-
-    
-
-<nav class="navbar navbar-light bg-warning    sticky-top">
-    <a class="navbar-brand"><img src="../images/new_logo-rm.png" width="30%" alt=""></a>
+<nav class="navbar navbar-light bg-danger    sticky-top">
+    <a class="navbar-brand"><img src="../images/logo.png" width="50%" alt=""></a>
     <form class="form-inline">
         <div class="btn-group">
-            <button type="button" class="btn btn-light">
+            <button type="button" class="btn btn-info text-white">
                 LOGIN<span></span>
             </button>
             
@@ -70,7 +115,7 @@
                     </nav>
                     <div class="card-body border-bottom py-3"> <!-- Put The Php Loop Here -->
                         <form action=" " method="post" enctype="multipart/form-data">
-                        <div class="row g-2 justify-content-center">
+                            <div class="row g-2 justify-content-center">
                                 <div class="col-md-6 mb-3">
                                     <img src="../images/login.svg" width="100%"  height="" alt="">
                                 </div>
@@ -78,7 +123,27 @@
                             <div class="row g-2 justify-content-center">
                                 <div class="col-md mb-3 ">
                                     <div class="form-floating">
-                                        <input type="email" class="form-control" id="floatingInputGrid" placeholder="Enter Contact Number" name="number" required>
+                                       <h4 class="mb-4 text-success"><?php 
+                                                    if(isset($_SESSION['msg'])){
+                                                        echo $_SESSION['msg'];
+                                                        unset($_SESSION['msg']);
+                                                    }
+                                                    ?>
+                                        </h4>
+                                        <h4 class="mb-4 text-danger"><?php
+                                                    if(isset($_SESSION['error'])){
+                                                        echo $_SESSION['error'];
+                                                        unset($_SESSION['error']);
+                                                    }
+                                                    ?>
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row g-2 justify-content-center">
+                                <div class="col-md mb-3 ">
+                                    <div class="form-floating">
+                                        <input type="email" class="form-control" id="floatingInputGrid" placeholder="Enter Contact Number" name="email" required>
                                         <label for="floatingInputGrid">Email*</label>
                                     </div>
                                 </div>
@@ -88,7 +153,7 @@
                             <div class="row g-2 justify-content-center">
                                 <div class="col-md mb-3">
                                     <div class="form-floating">
-                                        <input type="tel" class="form-control" id="floatingInputGrid" placeholder="Enter OTP" name="number" required>
+                                        <input type="password" class="form-control" id="floatingInputGrid" placeholder="Enter OTP" name="password" required>
                                         <label for="floatingInputGrid">Password*</label>
                                     </div>
                                 </div>
@@ -101,7 +166,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-md-6 text-center">
                                     <div class="">
-                                        <button class="btn btn-warning text-white" type="button">Login</button>
+                                        <button class="btn btn-info text-white" type="submit">Login</button>
                                     </div>
                                 </div>
                             </div>

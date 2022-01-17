@@ -33,7 +33,7 @@
                     <h2>Our Teaching Methodology</h2>
                     <p>At Modern School of Languages, in addition to teaching grammar and vocabulary, we focus on useful conversational topics that will be applicable to students’ career, everyday lives and their interest. This allows learners of all levels to quickly apply what they learn during classes to real life situations. We tend to ensure that each sentence, activity and topic builds towards fluency.</p>
                     <p>Our students become fluent in particular language while discovering their culture, lifestyles, history and traditions, as well as new perspectives. Join us for a unique and personalized Spanish learning journey that will inspire you.</p>
-                    <p>All our language courses are aligned with CEFR levels, so once you know your level, we can suggest you your level to get your progress going immediately. If you are not sure about your level, you can Contact Us to take our CEFR level test. </p>
+                    <p>All our language courses are aligned with CEFR levels, so once you know your level, we can suggest you your level to get your progress going immediately. If you are not sure about your level, you can <a href="contact.php">contact us</a> to take our CEFR level test. </p>
                 </div>
                 <div class="col-md-6">
                     <img src="images/methodology-1.jpg" alt="" class="img-fluid">
@@ -105,7 +105,7 @@
 
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="mb-0">A2 - Advanced</h4>
+                            <h4 class="mb-0">C2 - Advanced</h4>
                         </div>
                         <div class="card-body">
                             <p><strong>Can understand </strong>with ease virtually everything heard or read.</p>

@@ -105,7 +105,7 @@
             </div>
             <div class="row mt-3">
                 <div class="col-md text-center">
-                    <a href="contact.php" class="btn btn-warning text-white">Contact Us</a>
+                    <a href="contact.php" class="btn btn-info text-white">Contact Us</a>
                 </div>
             </div>
 
@@ -313,27 +313,7 @@
     <?php include_once 'inc/footer.php'; ?>
 
 
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-    <script src="owl-carousel/owl.carousel.min.js"></script>
-
-    <script>
-        $('.owl-carousel').owlCarousel({
-            loop: true,
-            margin: 10,
-            nav: false,
-            responsive: {
-                0: {
-                    items: 1
-                },
-                600: {
-                    items: 2
-                },
-                1000: {
-                    items: 3
-                }
-            }
-        })
-    </script>
+  
 
 </body>
 

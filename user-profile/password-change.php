@@ -1,133 +1,182 @@
-<?php include_once'inc/head.php'; ?>
-<link rel="stylesheet" href="../bootstrap5-cdn/css/bootstrap.min.css">
-    
-<style>
-.content{
-    margin-left: 0px;
-}
-</style>
-<style type="text/css">
+<?php
+include '../admin/connection.php';
+$conn = OpenCon();
+session_start();
 
-.bg-warning{
-    background-color: #ffb700!important;
+if (isset($_POST['new_p'])) {
+    // removes backslashes
+    $email = $_POST['email'];
+    $new_p = $_POST['new_p'];
+    $conf_p = $_POST['conf_p'];
+
+    if ($conf_p == $new_p) {
+        $new_p = md5($new_p);
+        
+        $result = mysqli_query($conn, "UPDATE students SET password='$new_p' WHERE email='$email'");
+        if ($result) {
+            $_SESSION['msg'] = "Congratulations!! You have successfully changed your password";
+            header("Location: login.php");
+        } else {
+            $_SESSION['error'] = "Password changed failed!";
+        }
+    } else {
+        $_SESSION['error'] = "Your Passwords does not match! Try again";
+    }
 }
+?>
+<?php include_once 'inc/head.php'; ?>
+<link rel="stylesheet" href="../bootstrap5-cdn/css/bootstrap.min.css">
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+
+    .content {
+        margin-left: 0px;
+    }
+
+    body {
+        font-family: 'Roboto Slab', serif;
+    }
+
+    .bg-warning {
+        background-color: #ffb700 !important;
+    }
 
 
     .card-title {
-    margin-bottom: 0rem;
-}
-
-.card-body {
-    -ms-flex: 1 1 auto;
-    flex: 1 1 auto;
-    min-height: 1px;
-    padding: 2rem 3.25rem;
-}
-
-.card-text{
-    font-size: 12px;
-}
-a{
-    text-decoration: none;
-}
-
-
-@media (min-width: 700px){
-    .open-nav
-    {
-        display: none;
+        margin-bottom: 0rem;
     }
-}
 
+    .card-body {
+        -ms-flex: 1 1 auto;
+        flex: 1 1 auto;
+        min-height: 1px;
+        padding: 2rem 3.25rem;
+    }
+
+    .card-text {
+        font-size: 12px;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+
+    @media (min-width: 700px) {
+        .open-nav {
+            display: none;
+        }
+    }
 </style>
 
 <body>
 
     <section>
+        <div class="content">
+            <nav class="navbar navbar-light bg-danger    sticky-top">
+                <a class="navbar-brand"><img src="../images/logo.png" width="50%" alt=""></a>
+                <form class="form-inline">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-info text-white">
+                            <a href="login.php" class="text-white">LOGIN</a><span></span>
+                        </button>
+                    </div>
+                </form>
+            </nav>
 
-<div class="content">
-    <nav class="navbar navbar-light bg-warning    sticky-top">
-        <a class="navbar-brand"><img src="../images/new_logo-rm.png" width="30%" alt=""></a>
-        <form class="form-inline">
-            <div class="btn-group">
-                <button type="button" class="btn btn-light">
-                    <a href="login.php"> LOGIN</a><span></span>
-                </button>
-            </div>
-        </form>
-    </nav>
+            <div class="container py-5 wishlist">
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <nav class="navbar navbar-light border venue-registration border-bottom">
+                                <a class="h4 text-dark font-weight-bold pt-2">Change your Password</a>
+                                <form class="form-inline">
 
-    <div class="container py-5 wishlist">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="card">
-                    <nav class="navbar navbar-light border venue-registration border-bottom">
-                        <a class="h4 text-dark font-weight-bold pt-2">Change your Password</a>
-                        <form class="form-inline">
-
-                        </form>
-                    </nav>
-                    <div class="card-body border-bottom py-3"> <!-- Put The Php Loop Here -->
-                        <form action=" " method="post" enctype="multipart/form-data">
-                            <div class="row g-2 justify-content-center">
-                                <div class="col-md-6 mb-3">
-                                    <img src="../images/pass_change.svg" width="100%"  height="" alt="">
-                                </div>
-                            </div>
-                            <div class="row g-2 justify-content-center">
-                                <div class="col-md mb-3 ">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="floatingInputGrid" placeholder="Enter Contact Number" name="number" required>
-                                        <label for="floatingInputGrid">Old Password*</label>
+                                </form>
+                            </nav>
+                            <div class="card-body border-bottom py-3">
+                                <form action=" " method="post">
+                                    <div class="row g-2 justify-content-center">
+                                        <div class="col-md-6 mb-3">
+                                            <img src="../images/pass_change.svg" width="100%" height="" alt="">
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            
-                            <div class="row g-2 justify-content-center">
-                                <div class="col-md mb-3">
-                                    <div class="form-floating">
-                                        <input type="password" class="form-control" id="floatingInputGrid" placeholder="Enter OTP" name="number" required>
-                                        <label for="floatingInputGrid">New Password*</label>
+                                    <div class="row g-2 justify-content-center">
+                                        <div class="col-md mb-3 ">
+                                            <div class="form-floating">
+                                                <h4 class="mb-4 text-success"><?php
+                                                                                if (isset($_SESSION['msg'])) {
+                                                                                    echo $_SESSION['msg'];
+                                                                                    unset($_SESSION['msg']);
+                                                                                }
+                                                                                ?>
+                                                </h4>
+                                                <h4 class="mb-4 text-danger"><?php
+                                                                                if (isset($_SESSION['error'])) {
+                                                                                    echo $_SESSION['error'];
+                                                                                    unset($_SESSION['error']);
+                                                                                }
+                                                                                ?>
+                                                </h4>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
+                                    <div class="row g-2 justify-content-center">
+                                        <div class="col-md mb-3 ">
+                                            <div class="form-floating">
+                                                <input type="email" class="form-control" id="floatingInputGrid" placeholder="Enter Email Address" name="email" required>
+                                                <label for="floatingInputGrid">Email*</label>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                            <div class="row g-2 justify-content-center">
-                                <div class="col-md mb-3">
-                                    <div class="form-floating">
-                                        <input type="password" class="form-control" id="floatingInputGrid" placeholder="Enter OTP" name="number" required>
-                                        <label for="floatingInputGrid">Confirm Password*</label>
-                                    </div>
-                                </div>
-                            </div>
 
-                            <div class="row justify-content-center">
-                                <div class="col-md-6 text-center">
-                                    <div class="">
-                                        <button class="btn btn-warning text-white" type="button">Change</button>
+                                    <div class="row g-2 justify-content-center">
+                                        <div class="col-md mb-3">
+                                            <div class="form-floating">
+                                                <input type="password" class="form-control" id="floatingInputGrid" placeholder="Enter OTP" name="new_p" required>
+                                                <label for="floatingInputGrid">New Password*</label>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
+
+                                    <div class="row g-2 justify-content-center">
+                                        <div class="col-md mb-3">
+                                            <div class="form-floating">
+                                                <input type="password" class="form-control" id="floatingInputGrid" placeholder="Enter OTP" name="conf_p" required>
+                                                <label for="floatingInputGrid">Confirm Password*</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row justify-content-center">
+                                        <div class="col-md-6 text-center">
+                                            <div class="">
+                                                <button class="btn btn-info text-white" type="submit">Change</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
 
-</div>
-</section>
+        </div>
+    </section>
 
-<script type="text/javascript">
-    function openNav() {
-        document.getElementById("mySidenav").style.width = "200px";
-    }
+    <script type="text/javascript">
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "200px";
+        }
 
-    function closeNav() {
-        document.getElementById("mySidenav").style.width = "0";
-    }
-</script>
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
 </body>
 
 </html>

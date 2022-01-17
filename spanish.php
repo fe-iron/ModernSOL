@@ -31,7 +31,7 @@
             <div class="row">
                 <div class="col-md">
                     <h4 class="mb-1">Learn Spanish With Us</h4>
-                    <p>Learn a new language of your choice from the comfort of your home.</p>
+                    <p>Learn a language of your choice from the comfort of your home.</p>
                     <p>At Modern School of Languages, Our aim is to provide you with the best possible learning environment at our school. Our team boasts of rich and varied experience in evolving the face of education at school and collegiate level. SOL is led by a group of young as well as experienced industry expert and teachers. The team is well equipped by research, IT infrastructure, product’s knowledge and domain expertise. We at MSOL, keep ourselves familiar and updated with the needs, demands and practices of education at large.</p>
                     <p>We offer comprehensive online and offline Spanish, German and French classes focusing on more than just grammar and vocabulary. Our languages courses cover useful topics like ‘Life abroad’ so you can learn to speak confidently in any situation.</p>
                 </div>
@@ -49,41 +49,38 @@
             <div class="row">
                 <div class="col-md">
                     <div class="why-learn-spanish-content">
-                        <h5 class="text-yellow">A language for travel</h5>
-                        <p>If you’re not sure which foreign language to learn?  Choose Spanish!</p>
-                    </div>
-                    <div class="why-learn-spanish-content">
-                        <h5 class="text-yellow">A language for higher education</h5>
+                        <h5 class="text-yellow">3rd Most Spoken language</h5>
                         <p>Spanish makes sense! Spanish is spoken by 661 million people worldwide. It is the third most spoken language in the world after English and Mandarin.</p>
                     </div>
                     <div class="why-learn-spanish-content">
-                        <h5 class="text-yellow">The language of culture</h5>
+                        <h5 class="text-yellow">Global Language</h5>
                         <p>It’s an official, national, or widely spoken language in 44 countries, including the United States.</p>
                     </div>
                     <div class="why-learn-spanish-content">
-                        <h5 class="text-yellow">The language of culture</h5>
+                        <h5 class="text-yellow">Career oriented</h5>
                         <p>It is one of the many reasons why learning Spanish in India is a significant value-add to a CV.</p>
                     </div>
                 </div>
                 <div class="col-md">
                     <div class="why-learn-spanish-content">
-                        <h5 class="text-yellow">A language for the international job market</h5>
+                        <h5 class="text-yellow">International relations</h5>
                         <p>Many Spanish-speaking regions, such as Latin America, are specifically seeking bilateral cooperation with India. This approach is opening a world of opportunities for many Indian companies.</p>
                     </div>
                     <div class="why-learn-spanish-content">
-                        <h5 class="text-yellow">The other language of international relations</h5>
+                        <h5 class="text-yellow">Connecting Latin America</h5>
                         <p>Indian brands such as Bajaj, Hero, Mahindra and Tata have become popular in the Latin American region. Indian motorcycles have become industry leaders, grabbing the largest market share in a few countries.</p>
                     </div>
                     <div class="why-learn-spanish-content">
-                        <h5 class="text-yellow">A language that is fun to learn</h5>
-                        <p>There are nearly 200 Spanish companies in India and 40 Indian companies in Spain.</p>
+                        <h5 class="text-yellow">Work opportunities abroad</h5>
+                        <p>There are more than 200 Spanish companies in India and 40 Indian companies in Spain.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <section class="line_1"></section>
     
-    <section class="career_job">
+    <!-- <section class="career_job">
         <div class="container">
             <h2 class="text-center mb-4">Career and Job Opportunities</h2>
             <div class="row">
@@ -97,7 +94,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <section class="scop">
         <div class="container">
@@ -137,7 +134,7 @@
                                 <img src="images/learn-images2.jpg" alt="" class="mt-3">
                                 <div class="card-body">
                                     <h5>Small groups or private classes</h5>
-                                    <p>8 to 10 students so you can practice speaking and get feedback</p>
+                                    <p>6 to 8 students so you can practice speaking and get feedback</p>
                                 </div>
                             </div>
                         </div>
@@ -163,7 +160,7 @@
                             <div class="card">
                                 <img src="images/learn-images5.jpg" alt="" class="mt-3">
                                 <div class="card-body">
-                                    <h5>LQuick Progress</h5>
+                                    <h5>Quick Progress</h5>
                                     <p>Taught with a communicative and interactive approach</p>
                                 </div>
                             </div>
@@ -324,6 +321,7 @@
     <script>
         $('.owl-carousel').owlCarousel({
             loop: true,
+            autoplay:true,
             margin: 10,
             nav: false,
             responsive: {

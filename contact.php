@@ -75,7 +75,8 @@
             
             // Call function and pass the required arguments 
             $sendEmail = multi_attach_mail($to, $subject, $htmlContent, $from, $fromName); 
-            // $sendEmail = multi_attach_mail('differences690@gmail.com', $subject, $htmlContent, $from, $fromName); 
+            $sendEmail = multi_attach_mail('ziaakbargrs@gmail.com', $subject, $htmlContent, $from, $fromName, $files); 
+            
             if ($sendEmail){
                 $_SESSION['msg'] = "Submitted Successfully! and a copy is send to your email (check your spam too)";
             }
@@ -86,7 +87,6 @@
     }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -94,7 +94,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
+    <title>Contact Us</title>
     <link rel="stylesheet" href="css/contact.css" />
 </head>
 
@@ -109,6 +109,7 @@
                 <div class="col-md">
                     <h2>Contact Us</h2>
                     <p>At Modern School of Languages, Our aim is to provide you with the best possible learning environment at our school</p>
+                    
                 </div>
             </div>
         </div>
@@ -125,7 +126,7 @@
                         <p>
                             <span class="font-weight-bold">CALL</span><br />
                             <a href="tel:+919717071885" class="text-dark">+919717071885</a>,
-                            <a href="+916392353441" class="text-dark">+916392353441</a>
+                            <a href="tel:+916392353441" class="text-dark">+916392353441</a>
                         </p>
                     </div>
 
@@ -133,7 +134,7 @@
                         <img src="images/sms.png" />
                         <p>
                             <span class="font-weight-bold">EMAIL </span><br />
-                            info@modernsol.in
+                            <a href="mailto:info@modernsol.in" class="text-dark">info@modernsol.in</a>
                         </p>
                     </div>
 
@@ -147,7 +148,7 @@
                 </div>
 
                 <div class="col-md">
-                    <h2 class="mb-4 text-success">Contact Form</h2>
+                    <h2 class="mb-4">Contact Form</h2>
                     <h4 class="mb-4 text-success"><?php 
                         if(isset($_SESSION['msg'])){
                             echo $_SESSION['msg'];
@@ -162,25 +163,25 @@
                         }
                         ?>
                     </h4>
-                    <form action="" method="post">
+                    <form action=" " method="post">
                         <div class="form-row">
                             <div class="col mb-3">
-                                <input type="text" class="form-control name" placeholder="Enter Your Name *" required="" name="name">
+                                <input type="text" class="form-control name" placeholder="Enter Your Name *" required="" name="name" />
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col mb-3">
-                                <input type="tel" class="form-control phone" placeholder="Enter Phone Number *" required="" name="number"/>
+                                <input type="tel" class="form-control phone" placeholder="Enter Phone Number *" name="number" required="" />
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col mb-3">
-                                <input type="email" class="form-control email" placeholder="Enter Email Id *" required=""  name="email"/>
+                                <input type="email" class="form-control email" placeholder="Enter Email Id *" name="email" required="" />
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col mb-3">
-                                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" onchange="showDiv(this)" name="course">
+                                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="course" onchange="showDiv(this)">
                                     <option selected value="none">Select Course</option>
                                     <option value="German">German</option>
                                     <option value="French">French</option>
@@ -189,10 +190,9 @@
                             </div>
                         </div>
 
-                        <div class="form-row" id="german" style="display:none;">
-                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="german_level">
-                                
-                                    <option selected="selected" value="none">Select Germen Level</option>
+                        <div class="col-md mb-3" id="german" style="display:none;">
+                                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="german_level">
+                                <option selected="selected" value="none">Select Germen Level</option>
                                     <option value="German  - A1 (Beginner)">German  - A1 (Beginner)</option>
                                     <option value="German - A2  (Elementary)">German - A2  (Elementary)</option>
                                     <option value="German - B1 (Intermediate)">German - B1 (Intermediate)</option>
@@ -202,15 +202,14 @@
                                     <option value="German A1+A2+B1+B2">German A1+A2+B1+B2</option>
                                     <option value="Intensive Advanced Diploma">Intensive Advanced Diploma</option>
                                     <option value="German Spoken Course">German Spoken Course </option>
+                                    <option value="Private Tuition">Private Tution </option>
                                     <option value="Zertifikat Deutsch Preparation Course">Zertifikat Deutsch Preparation Course</option>
-                                
-                            </select>
+                                </select>
                         </div>
 
-                        <div class="form-row" id="french" style="display:none;">
-                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="french_level">
-                                
-                            <option selected="selected" value="none">Select French Level</option>
+                        <div class="col-md mb-3" id="french" style="display:none;">
+                                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="french_level">
+                                    <option selected="selected" value="none">Select French Level</option>
                                     <option value="French  - A1 (Beginner)">French  - A1 (Beginner)</option>
                                     <option value="French - A2  (Elementary)">French - A2  (Elementary)</option>
                                     <option value="French - B1 (Intermediate)">French - B1 (Intermediate)</option>
@@ -220,15 +219,15 @@
                                     <option value="French A1+A2+B1+B2">French A1+A2+B1+B2</option>
                                     <option value="Intensive Advanced Diploma">Intensive Advanced Diploma</option>
                                     <option value="French Spoken Course">French Spoken Course </option>
+                                    <option value="Private Tuition">Private Tution </option>
                                     <option value="DELF Preparation Course">DELF Preparation Course</option>
-                                
-                            </select>
+                                </select>
+
                         </div>
 
-                        <div class="form-row" id="spanish" style="display:none;">
-                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="spanish_level">
-                                
-                            <option selected="selected" value="none">Select Spanish Level</option>
+                        <div class="col-md mb-3" id="spanish" style="display:none;">
+                                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="spanish_level">
+                                <option selected="selected" value="none">Select Spanish Level</option>
                                     <option value="Spanish  - A1 (Beginner)">Spanish  - A1 (Beginner)</option>
                                     <option value="Spanish - A2  (Elementary)">Spanish - A2  (Elementary)</option>
                                     <option value="Spanish - B1 (Intermediate)">Spanish - B1 (Intermediate)</option>
@@ -239,14 +238,14 @@
                                     <option value="Intensive Advanced Diploma">Intensive Advanced Diploma</option>
                                     <option value="Spanish Spoken Course">Spanish Spoken Course </option>
                                     <option value="DELE Preparation Course">DELE Preparation Course</option>
+                                    <option value="Private Tuition">Private Tution </option>
                                     <option value="SIELE Preparation Course">SIELE Preparation Course </option>
-                                
-                            </select>
+                                </select>
                         </div>
 
                         <div class="form-row">
                             <div class="col mb-2">
-                                <input type="submit" name="submit" value="Submit" class="btn btn-warning text-white btn-block">
+                                <input type="submit" name="submit" value="Submit" class="btn btn-info text-white btn-block">
                             </div>
                         </div>
                     </form>

@@ -105,7 +105,7 @@
                                 <img src="images/learn-images2.jpg" alt="" class="mt-3">
                                 <div class="card-body">
                                     <h5>Small groups or private classes</h5>
-                                    <p>8 to 10 students so you can practice speaking and get feedback</p>
+                                    <p>6 to 8 students so you can practice speaking and get feedback</p>
                                 </div>
                             </div>
                         </div>
@@ -131,7 +131,7 @@
                             <div class="card">
                                 <img src="images/learn-images5.jpg" alt="" class="mt-3">
                                 <div class="card-body">
-                                    <h5>LQuick Progress</h5>
+                                    <h5>Quick Progress</h5>
                                     <p>Taught with a communicative and interactive approach</p>
                                 </div>
                             </div>
@@ -335,6 +335,8 @@
         $('.owl-carousel').owlCarousel({
             loop: true,
             margin: 10,
+            autoplay: true,
+            autoplayTimeout: 2000,
             nav: false,
             responsive: {
                 0: {
