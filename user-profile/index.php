@@ -46,14 +46,9 @@
             <p class="mb-0">MODERN SCHOOL <br> OF LANGUAGES</p></a>
             </div>
             <div class="pt-3" id="sidebar-here">
-               <a href="index.php" class="list active">My Course</a>
+               <a href="index.php" class="list active">Home</a>
                <a href="account.php" class="list">Profile</a>
-               <a href="#" class="list" onclick="openLan()">Classes</a>
-                <div class="languages-dropdown" style="display: none;" id="open-classes">
-                    <a href="french_classes.php" class="list ">French Classes</a>
-                    <a href="spanish_classes.php" class="list ">Spanish Classes</a>
-                    <a href="german_classes.php" class="list ">Germani Classes</a>
-                </div>
+               <a href="contact.php" class="list">Contact Us</a>
            </div>
        </div>
 
@@ -74,14 +69,9 @@
             </div>
             </div>
           <div class="pt-3" id="sidebar-here">
-          <a href="index.php" class="list active">My Course</a>
+          <a href="index.php" class="list active">Home</a>
           <a href="account.php" class="list">Profile</a>
-          <a href="#" class="list " onclick="openLan1()">Classes</a>
-            <div class="languages-dropdown" style="display: none;" id="open-classes1">
-                <a href="french_classes.php" class="list ">French Classes</a>
-                <a href="spnish_classes.php" class="list ">Spanish Classes</a>
-                <a href="german_classes.php" class="list ">Germani Classes</a>
-            </div>
+          <a href="contact.php" class="list">Contact Us</a>
        </div>
    </div>
 </div>
@@ -125,8 +115,15 @@
                                 ?>
                                 </div>
 
-                                <div class="col-md-4">
-                                    <h3><?php echo $course; ?><span></span></h3>
+                                <div class="col-md">
+                                    <?php $sql = "SELECT name FROM batches where id=" . $row['batch_fk'] . " LIMIT 1";
+                                                    $batch_name = $conn->query($sql);
+                                                    if($batch_name->num_rows > 0){
+                                                        $data = mysqli_fetch_assoc($batch_name);
+                                                        echo "<h3>Batch Name: ". $data['name']."<span></span></h3>";
+                                                    }
+                                    ?>
+                                    <h4>Course: <?php echo $course; ?><span></span></h4>
                                     <!-- <p class="mb-1">Vanue Type : Villa</p> -->
                                     <h6><span class="badge badge-dark">5 Star</span></h6>
                                     <h5 class="text-dark"><?php 

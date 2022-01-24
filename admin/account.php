@@ -68,6 +68,7 @@
           <a href="account.php" class="list active">Profile</a>
           <a href="batches.php" class="list">Batches</a>
           <a href="career.php" class="list">Career</a>
+          <a href="contact.php" class="list">Contact</a>
           <a  class="list" onclick="openLan()">Classes</a>
                 <div class="languages-dropdown" style="display: none;" id="open-classes">
                     <a href="french_classes.php" class="list ">French Classes</a>
@@ -76,6 +77,8 @@
                 </div>
           <a href="e-form.php" class="list">Enquiry Form</a>
           <a href="announcement.php" class="list">Announcement</a>
+          <a href="student_contact.php" class="list">Student's Enquiry</a>
+          <a href="payment.php" class="list">Payments</a>
         </div>
       </div>
     </div>
@@ -105,6 +108,7 @@
           <a href="account.php" class="list active">Profile</a>
           <a href="batches.php" class="list">Batches</a>
           <a href="career.php" class="list">Career</a>
+          <a href="contact.php" class="list">Contact</a>
           <a class="list " onclick="openLan1()">Classes</a>
             <div class="languages-dropdown" style="display: none;" id="open-classes1">
                 <a href="french_classes.php" class="list ">French Classes</a>
@@ -113,6 +117,8 @@
             </div>
           <a href="e-form.php" class="list">Enquiry Form</a>
           <a href="announcement.php" class="list">Announcement</a>
+          <a href="student_contact.php" class="list">Student's Enquiry</a>
+          <a href="payment.php" class="list active">Payments</a>
         </div>
       </div>
     </div>

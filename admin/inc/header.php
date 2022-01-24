@@ -85,7 +85,6 @@
                     <p class="card-text text-center"><?php if(isset($_SESSION['email'])){echo $_SESSION['email']; } ?></p>
 
                     <a href="logout.php" class="btn btn-danger btn-block">Logout</a>
-                    
                   </div>
                 </div>
             </div>

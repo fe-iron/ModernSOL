@@ -31,6 +31,14 @@
         $sql = "SELECT * FROM career";
         $career = $conn->query($sql);
         $career = mysqli_num_rows($career);
+
+        $sql = "SELECT * FROM contact";
+        $contact = $conn->query($sql);
+        $contact = mysqli_num_rows($contact);
+
+        $sql = "SELECT * FROM student_contact";
+        $s_contact = $conn->query($sql);
+        $s_contact = mysqli_num_rows($s_contact);
     }else{
         session_destroy();
         echo "<script>window.location.href='login.php';</script>";
@@ -57,6 +65,7 @@
                <a href="account.php" class="list">Profile</a>
                <a href="batches.php" class="list">Batches</a>
                <a href="career.php" class="list">Career</a>
+               <a href="contact.php" class="list">Contact</a>
                <a class="list" onclick="openLan()">Classes</a>
                <div class="languages-dropdown" style="display: none;" id="open-classes">
                     <a href="french_classes.php" class="list ">French Classes</a>
@@ -65,6 +74,8 @@
                 </div>
                <a href="e-form.php" class="list">Enquiry Form</a>
                <a href="announcement.php" class="list">Announcement</a>
+               <a href="student_contact.php" class="list">Student's Enquiry</a>
+               <a href="payment.php" class="list">Payments</a>
             </div>
        </div>
 
@@ -89,6 +100,7 @@
                 <a href="account.php" class="list">Profile</a>
                 <a href="batches.php" class="list">Batches</a>
                 <a href="career.php" class="list">Career</a>
+                <a href="contact.php" class="list">Contact</a>
                 <a class="list " onclick="openLan1()">Classes</a>
                 <div class="languages-dropdown" style="display: none;" id="open-classes1">
                     <a href="french_classes.php" class="list ">French Classes</a>
@@ -97,6 +109,8 @@
                 </div>
                 <a href="e-form.php" class="list">Enquiry Form</a>
                 <a href="announcement.php" class="list">Announcement</a>
+                <a href="student_contact.php" class="list">Student's Enquiry</a>
+                <a href="payment.php" class="list">Payments</a>
             </div>
             </div>
             </div>
@@ -149,29 +163,47 @@
         </div>
 
         <div class="row mx-5 my-5">
-        <div class="col-md-3 col-sm-6">
-            <div class="counter green">
-                <div class="counter-icon">
-                    <i class="fa fa-info-circle"></i>
+            <div class="col-md-3 col-sm-6">
+                <div class="counter green">
+                    <div class="counter-icon">
+                        <i class="fa fa-info-circle"></i>
+                    </div>
+                    <a href="e-form.php" style="text-decoration:none; color: aliceblue;"><h3>Enquiry Forms</h3></a>
+                    <span class="counter-value"><?php echo $total_enquiry; ?></span>
                 </div>
-                <h3>Enquiry Forms</h3>
-                <span class="counter-value"><?php echo $total_enquiry; ?></span>
             </div>
-        </div>
 
-        <div class="col-md-3 col-sm-6">
-            <div class="counter red">
-                <div class="counter-icon">
-                    <i class="fa fa-info-circle"></i>
+            <div class="col-md-3 col-sm-6">
+                <div class="counter red">
+                    <div class="counter-icon">
+                        <i class="fa fa-briefcase"></i>
+                    </div>
+                    <a href="career.php" style="text-decoration:none; color: aliceblue;"><h3>Career</h3></a>
+                    <span class="counter-value"><?php echo $career; ?></span>
                 </div>
-                <h3>Career</h3>
-                <span class="counter-value"><?php echo $career; ?></span>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div class="counter green">
+                    <div class="counter-icon">
+                        <i class="fa fa-user-circle"></i>
+                    </div>
+                    <a href="contact.php" style="text-decoration:none; color: aliceblue;"><h3>Contact Form</h3></a>
+                    <span class="counter-value"><?php echo $contact; ?></span>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div class="counter red">
+                    <div class="counter-icon">
+                        <i class="fa fa-user-circle"></i>
+                    </div>
+                    <a href="student_contact.php" style="text-decoration:none; color: aliceblue;"><h3>Student's Query</h3></a>
+                    <span class="counter-value"><?php echo $s_contact; ?></span>
+                </div>
             </div>
         </div>
-        
     </div>
-    </div>
-    
 </div>
 </section>
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script> 

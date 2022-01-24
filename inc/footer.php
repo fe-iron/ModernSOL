@@ -42,7 +42,7 @@
 
 
 
-
+<?php include_once 'inc/pay_now.php';  ?>
 
 
 <footer>
@@ -100,10 +100,10 @@
                     <h3>Contact Info</h3>
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link" href="tel:8851050712"><img src="images/icons/call.png" alt=""> +91-9717071885</a>
+                            <a class="nav-link" href="tel:9717071885"><img src="images/icons/call.png" alt=""> +91-9717071885</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="https://wa.me/+919540126057"><img src="images/icons/sms.png" alt=""> +91-6392353441</a>
+                            <a class="nav-link" href="https://wa.me/+916392353441"><img src="images/icons/sms.png" alt=""> +91-6392353441</a>
                         </li>
                     </ul>
                     <ul class="list-inline pt-3">
@@ -132,7 +132,8 @@
             <div class="row justify-content-center">
                 <div class="col-md text-center">
                     <h4>Modern School Of Languages</h4>
-                    <p class="mb-0 text-center">© MSOL - 2021. All Rights Reserved || Designed by <a href="www.jabvmate.com" style="text-decoration: none;color:white;" >ApnaPrachar.com</a></p>
+                    <h5>An ISO 9001:2015 Certified Educational Institution</h5>
+                    <p class="mb-0 text-center">© MSOL - 2022. All Rights Reserved || Designed by <a href="https://apnaprachar.com/" style="text-decoration: none;color:white;" target="_blank">ApnaPrachar.com</a></p>
                 </div>
             </div>
         </div>

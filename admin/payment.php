@@ -1,6 +1,7 @@
 <?php 
   session_start();
-  include_once 'inc/head.php'; ?>
+  include_once 'inc/head.php'; 
+?>
 <?php
 
     include 'connection.php';
@@ -14,7 +15,7 @@
     if(isset($_POST['remove_id'])){
         $remove_id = $_POST['remove_id'];
 
-        $sql = "DELETE FROM enquiry_form WHERE id=".$remove_id;    
+        $sql = "DELETE FROM payments WHERE id=".$remove_id;    
         
         if ($conn->query($sql) === TRUE) {
             $_SESSION['msg'] = "Successfully Deleted!";
@@ -23,9 +24,10 @@
         }
     }
 
-    $sql = 'SELECT * FROM enquiry_form ORDER BY id DESC';
-    $enquiry_form = $conn->query($sql);
-  
+    $sql = 'SELECT * FROM payments ORDER BY id DESC';
+    $payments = $conn->query($sql);
+    
+    
 ?>
 <link rel="stylesheet" type="text/css" href="inc/css/style.css">
 
@@ -52,10 +54,10 @@
                     <a href="spanish_classes.php" class="list ">Spanish Classes</a>
                     <a href="german_classes.php" class="list ">German Classes</a>
                 </div>
-          <a href="e-form.php" class="list active">Enquiry Form</a>
+          <a href="e-form.php" class="list">Enquiry Form</a>
           <a href="announcement.php" class="list">Announcement</a>
           <a href="student_contact.php" class="list">Student's Enquiry</a>
-          <a href="payment.php" class="list">Payments</a>
+          <a href="payment.php" class="list active">Payments</a>
         </div>
       </div>
     </div>
@@ -92,10 +94,10 @@
                 <a href="spnish_classes.php" class="list ">Spanish Classes</a>
                 <a href="german_classes.php" class="list ">German Classes</a>
             </div>
-          <a href="e-form.php" class="list active">Enquiry Form</a>
+          <a href="e-form.php" class="list">Enquiry Form</a>
           <a href="announcement.php" class="list">Announcement</a>
           <a href="student_contact.php" class="list">Student's Enquiry</a>
-          <a href="payment.php" class="list">Payments</a>
+          <a href="payment.php" class="list active">Payments</a>
         </div>
       </div>
     </div>
@@ -123,7 +125,7 @@
             </h4>
             <div class="card">
                 <nav class="navbar navbar-light border venue-registration border-bottom">
-                    <a class="h4 text-dark font-weight-bold pt-2">Enquiry Forms Submitted</a>
+                    <a class="h4 text-dark font-weight-bold pt-2">Payment made by Students</a>
                     <form class="form-inline">
                     </form>
                 </nav>
@@ -137,16 +139,14 @@
                                     <th scope="col" class="border-right text-center">Full Name</th>
                                     <th scope="col" class="border-right text-center">Number</th>   
                                     <th scope="col" class="border-right text-center">Email</th>  
-                                    <th scope="col" class="border-right text-center">Course</th> 
-                                    <th scope="col" class="border-right text-center">French Level</th>
-                                    <th scope="col" class="border-right text-center">German Level</th>
-                                    <th scope="col" class="border-right text-center">Spanish Level</th>      
+                                    <th scope="col" class="border-right text-center">Amount</th> 
+                                    <th scope="col" class="border-right text-center">Payment ID</th>
                                     <th scope="col" class="border-right text-center">Action</th>      
                                 </tr>
                                 </thead>
                                 <tbody> 
                                     <?php $count = 0;
-                                    while($data = mysqli_fetch_assoc($enquiry_form)){ 
+                                    while($data = mysqli_fetch_assoc($payments)){ 
                                         $count = $count + 1; ?>
                                         <tr class="border-bottom">
                                         <td class="border-right border-left text-center"><?php echo $count; ?></td>
@@ -154,14 +154,12 @@
                                         <td class="border-right border-left text-center"><?php echo $data['name']; ?></td>
                                         <td class="border-right border-left text-center"><?php echo $data['number']; ?></td>
                                         <td class="border-right border-left text-center"><?php echo $data['email']; ?></td>
-                                        <td class="border-right border-left text-center"><?php echo $data['course']; ?></td>
-                                        <td class="border-right border-left text-center"><?php echo $data['f_level']; ?></td>
-                                        <td class="border-right border-left text-center"><?php echo $data['g_level']; ?></td>
-                                        <td class="border-right border-left text-center"><?php echo $data['s_level']; ?></td>
+                                        <td class="border-right border-left text-center"><?php echo $data['amount']; ?></td>
+                                        <td class="border-right border-left text-center"><?php echo $data['payment_id']; ?></td>
                                         <td>
                                             <button type="button" class="btn btn-danger" value="<?php echo $data['id']; ?>" onclick="remove(this.value)">Delete</button>    
-                                        </td>  
-                                      </tr> 
+                                        </td>
+                                        </tr> 
                                     <?php } ?>
                                 </tbody>
                             </table>
@@ -177,27 +175,29 @@
 
 <div class="modal fade" id="remove" tabindex="-1" role="dialog" aria-labelledby="removeTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Confirmation</h5>
-            
-        </div>
-        <div class="modal-body">
-            <h1 class="text-danger fw-bold" style="text-align: center;">Are you sure?</h1>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="close_modal('remove')">No</button>
-            <button type="button" class="btn btn-primary" onclick="submit('remove');">Yes</button>
-        </div>
-        </div>
-    </div>
-    </div>
+      <div class="modal-content">
+      <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Confirmation</h5>
+          
+      </div>
+      <div class="modal-body">
+          <h1 class="text-danger fw-bold" style="text-align: center;">Are you sure?</h1>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="close_modal('remove')">No</button>
+          <button type="button" class="btn btn-primary" onclick="submit('remove');">Yes</button>
+      </div>
+      </div>
+  </div>
+</div>
 
-    <div style="display: hidden">
+
+
+  <div style="display: hidden">
         <form action=" " method="post" name="remove_form">
             <input type="hidden" id="remove_id" name="remove_id">
         </form>
-    </div>
+  </div>
 
   <script type="text/javascript">
     function openNav() {
@@ -208,6 +208,12 @@
       document.getElementById("mySidenav").style.width = "0";
     }
 
+    function remove(id){
+        $('#remove_id').val(id);
+        $('.imagepreview').attr('src', $(this).find('img').attr('src'));
+        $('#remove').modal('show');
+    }
+
     function close_modal(tag){
         $('#'+tag).modal('hide');
     }
@@ -216,13 +222,6 @@
     function submit(){
         document.forms['remove_form'].submit();
     }
-
-    function remove(id){
-        $('#remove_id').val(id);
-        $('.imagepreview').attr('src', $(this).find('img').attr('src'));
-        $('#remove').modal('show');
-    }
-
   </script>
 
 

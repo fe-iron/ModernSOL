@@ -1,61 +1,63 @@
 <?php
-session_start();
+  session_start();
 
-if (isset($_GET['key'])) {
-  $fk = $_GET['key'];
-} else {
-  $fk = " ";
-}
-
-include_once 'inc/head.php';
-include 'connection.php';
-$conn = OpenCon();
-
-
-if (isset($_POST['remove_id'])) {
-  $remove_id = $_POST['remove_id'];
-
-  $sql = "DELETE FROM classes WHERE id=" . $remove_id;
-
-  if ($conn->query($sql) === TRUE) {
-    $_SESSION['msg'] = "Successfully Deleted!";
+  if (isset($_GET['key'])) {
+    $fk = $_GET['key'];
   } else {
-    $_SESSION['error'] = "Delete Failed! Try again";
+    $fk = " ";
   }
-}
 
-if (isset($_POST['submit_link'])) {
-  $link = $_POST['link'];
-  if (isset($_POST['classes_link_fk'])) {
-    $fk = $_POST['classes_link_fk'];
+  include_once 'inc/head.php';
+  include 'connection.php';
+  $conn = OpenCon();
 
-    $dat = date('l');
-    $query = "INSERT into `classes` (link, classes_details_fk, day) 
-                    VALUES ('$link', '$fk', '$dat')";
 
-    if ($conn->query($query) === TRUE) {
-      $_SESSION['msg'] = "Successfully created new Class link!";
+  if (isset($_POST['remove_id'])) {
+    $remove_id = $_POST['remove_id'];
+
+    $sql = "DELETE FROM classes WHERE id=" . $remove_id;
+
+    if ($conn->query($sql) === TRUE) {
+      $_SESSION['msg'] = "Successfully Deleted!";
     } else {
-      // echo "Error: " . $query . "<br>" . $conn->error;
-      $_SESSION['error'] = "New class link creation failed! Try Again";
+      $_SESSION['error'] = "Delete Failed! Try again";
     }
-  } else {
-    $_SESSION['error'] = "Classes foreign key not found! Try again";
   }
-}
 
-$sql = "SELECT * FROM classes where classes_details_fk=" . $fk . " ORDER BY id DESC";
-$classes = $conn->query($sql);
+  if (isset($_POST['submit_link'])) {
+    $link = $_POST['link'];
+    if (isset($_POST['classes_link_fk'])) {
+      $fk = $_POST['classes_link_fk'];
 
-//   fetching for todays link
-$dat = date("y-m-d");
-$sql = "SELECT * FROM classes where classes_details_fk=" . $fk . " and created_on >=" . $dat . " LIMIT 1";
-$today_classes = $conn->query($sql);
-$row = mysqli_fetch_assoc($today_classes);
-if (isset($row['link'])) {
-  $today_link = $row['link'];
-}
+      $dat = date('l');
+      // $today_date = date('Y-m-d');
+      $query = "INSERT into `classes` (link, batch_fk, day, date) 
+                      VALUES ('$link', '$fk', '$dat', CURRENT_TIMESTAMP)";
 
+      if ($conn->query($query) === TRUE) {
+        $_SESSION['msg'] = "Successfully created new Class link!";
+      } else {
+        // echo "Error: " . $query . "<br>" . $conn->error;
+        $_SESSION['error'] = "New class link creation failed! Try Again";
+      }
+    } else {
+      $_SESSION['error'] = "Classes foreign key not found! Try again";
+    }
+  }
+
+  $sql = "SELECT * FROM classes where batch_fk=" . $fk . " ORDER BY id DESC";
+  $classes = $conn->query($sql);
+
+  //   fetching for todays link
+  $dat = date("Y-m-d");
+  $sql = "SELECT * FROM classes where batch_fk='" . $fk . "' and `date`='" . $dat . "' ORDER BY id DESC LIMIT 1";
+  $today_classes = $conn->query($sql);
+  if($today_classes->num_rows > 0){
+    $row = mysqli_fetch_assoc($today_classes);
+    if (isset($row['link'])) {
+      $today_link = $row['link'];
+    }
+  }
 
 ?>
 
@@ -77,6 +79,7 @@ if (isset($row['link'])) {
           <a href="account.php" class="list">Profile</a>
           <a href="batches.php" class="list ">Batches</a>
           <a href="career.php" class="list">Career</a>
+          <a href="contact.php" class="list">Contact</a>
           <a class="list active" onclick="openLan()">Classes</a>
           <div class="languages-dropdown" style="display: none;" id="open-classes">
             <a href="french_classes.php" class="list ">French Classes</a>
@@ -85,6 +88,8 @@ if (isset($row['link'])) {
           </div>
           <a href="e-form.php" class="list">Enquiry Form</a>
           <a href="announcement.php" class="list">Announcement</a>
+          <a href="student_contact.php" class="list">Student's Enquiry</a>
+          <a href="payment.php" class="list">Payments</a>
         </div>
       </div>
     </div>
@@ -106,6 +111,7 @@ if (isset($row['link'])) {
           <a href="account.php" class="list ">Profile</a>
           <a href="batches.php" class="list ">Batches</a>
           <a href="career.php" class="list">Career</a>
+          <a href="contact.php" class="list">Contact</a>
           <a  class="list active" onclick="openLan1()">Classes</a>
           <div class="languages-dropdown" style="display: none;" id="open-classes1">
             <a href="french_classes.php" class="list ">French Classes</a>
@@ -114,6 +120,8 @@ if (isset($row['link'])) {
           </div>
           <a href="e-form.php" class="list">Enquiry Form</a>
           <a href="announcement.php" class="list">Announcement</a>
+          <a href="student_contact.php" class="list">Student's Enquiry</a>
+          <a href="payment.php" class="list">Payments</a>
         </div>
       </div>
     </div>
@@ -174,9 +182,11 @@ if (isset($row['link'])) {
                     </div>
                   </div>
                   <input type="hidden" value="<?php if ($fk == " ") {
+                                                echo "null";
                                               } else {
                                                 echo $fk;
-                                              } ?>" name="classes_link_fk">
+                                              } ?>" 
+                                              name="classes_link_fk">
                   <div class="form-row my-3">
                     <div class="col-md mb-2">
                       <button type="submit" class="btn btn-info text-white" name="submit_link">Post Link</button>

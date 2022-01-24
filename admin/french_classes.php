@@ -34,6 +34,7 @@
           <a href="account.php" class="list ">Profile</a>
           <a href="batches.php" class="list">Batches</a>
           <a href="career.php" class="list">Career</a>
+          <a href="contact.php" class="list">Contact</a>
           <a class="list active" onclick="openLan()">Classes</a>
                 <div class="languages-dropdown" style="display: none;" id="open-classes">
                     <a href="french_classes.php" class="list active">French Classes</a>
@@ -42,6 +43,8 @@
                 </div>
           <a href="e-form.php" class="list">Enquiry Form</a>
           <a href="announcement.php" class="list">Announcement</a>
+          <a href="student_contact.php" class="list">Student's Enquiry</a>
+          <a href="payment.php" class="list">Payments</a>
         </div>
       </div>
     </div>
@@ -71,6 +74,7 @@
           <a href="account.php" class="list ">Profile</a>
           <a href="batches.php" class="list">Batches</a>
           <a href="career.php" class="list">Career</a>
+          <a href="contact.php" class="list">Contact</a>
           <a class="list active" onclick="openLan1()">Classes</a>
             <div class="languages-dropdown" style="display: none;" id="open-classes1">
                 <a href="french_classes.php" class="list active">French Classes</a>
@@ -79,6 +83,8 @@
             </div>
           <a href="e-form.php" class="list">Enquiry Form</a>
           <a href="announcement.php" class="list">Announcement</a>
+          <a href="student_contact.php" class="list">Student's Enquiry</a>
+          <a href="payment.php" class="list">Payments</a>
         </div>
       </div>
     </div>
@@ -107,7 +113,8 @@
                               </div>
                               <div class="row pt-3">
                                   <div class="col-md-4 mb-3">
-                                      <img src="images/bg-images.jpg">
+                                      <img src="../images/map/french.png">
+                                      
                                   </div>
 
                                   <div class="col-md">
@@ -133,7 +140,7 @@
 
                                           if($row['batch_time_thurs'] == "" || $row['batch_time_thurs'] == "none"){
                                           }else{
-                                            echo '<p><span class="text-dark font-weight-bold">Thursday:</span> '.$data['batch_time_thurs'].'</p>';
+                                            echo '<p><span class="text-dark font-weight-bold">Thursday:</span> '.$row['batch_time_thurs'].'</p>';
                                           }
 
                                           if($row['batch_time_fri'] == "" || $row['batch_time_fri'] == "none"){

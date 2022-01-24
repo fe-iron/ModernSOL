@@ -52,8 +52,12 @@
         }
     }
 
+    $sql = "SELECT * FROM batches ORDER BY id DESC";
+    $batches = $conn->query($sql);
+    
     $sql = "SELECT * FROM announancement ORDER BY id DESC";
     $announcement = $conn->query($sql);
+
     $batch_name = array();
 
     while($data = mysqli_fetch_assoc($announcement)){ 
@@ -85,6 +89,7 @@
           <a href="account.php" class="list">Profile</a>
           <a href="batches.php" class="list">Batches</a>
           <a href="career.php" class="list">Career</a>
+          <a href="contact.php" class="list">Contact</a>
           <a class="list" onclick="openLan()">Classes</a>
                 <div class="languages-dropdown" style="display: none;" id="open-classes">
                     <a href="french_classes.php" class="list ">French Classes</a>
@@ -93,6 +98,8 @@
                 </div>
           <a href="e-form.php" class="list">Enquiry Form</a>
           <a href="announcement.php" class="list active">Announcement</a>
+          <a href="student_contact.php" class="list">Student's Enquiry</a>
+          <a href="payment.php" class="list">Payments</a>
         </div>
       </div>
     </div>
@@ -122,6 +129,7 @@
           <a href="account.php" class="list">Profile</a>
           <a href="batches.php" class="list">Batches</a>
           <a href="career.php" class="list">Career</a>
+          <a href="contact.php" class="list">Contact</a>
           <a  class="list " onclick="openLan1()">Classes</a>
             <div class="languages-dropdown" style="display: none;" id="open-classes1">
                 <a href="french_classes.php" class="list ">French Classes</a>
@@ -130,6 +138,8 @@
             </div>
           <a href="e-form.php" class="list">Enquiry Form</a>
           <a href="announcement.php" class="list active">Announcement</a>
+          <a href="student_contact.php" class="list">Student's Enquiry</a>
+          <a href="payment.php" class="list">Payments</a>
         </div>
       </div>
     </div>
@@ -182,9 +192,11 @@
                       <select class="form-select form-control form-select-lg mb-3" aria-label=".form-select-lg example" name="batch">
                         <option selected="selected" value="none">Select Batch</option>
                         <?php 
+                          if($batches->num_rows > 0){
                             while($data = mysqli_fetch_assoc($batches)){ 
                                 echo '<option value="'.$data['id'].'">'.$data['name'].'</option>';
                             }
+                          }
                         ?>
                       </select>
                     </div>                    

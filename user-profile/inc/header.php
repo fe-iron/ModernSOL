@@ -11,6 +11,7 @@
             // output data of each row
             while($row = $result->fetch_assoc()){
                 $photo = $row["file"];
+                echo $photo;
             }
         }
     }
@@ -77,7 +78,8 @@
             <div class="dropdown-menu dropdown-menu-right">
                 <div class="card border-0" style="width: 18rem;">
                 <?php if(!empty($photo)){?>
-                    <img src="upload/admin/<?php echo $photo; ?>" class="card-img-top rounded-circle" alt="..." >
+                    <img src="../admin/upload/students/<?php
+                         echo $photo; ?>" class="card-img-top rounded-circle" alt="..." >
                 <?php }else{ ?>
                   <img src="../images/avatar.png" class="card-img-top rounded-circle" alt="..." >
                 <?php } ?>

@@ -14,7 +14,7 @@
     if(isset($_POST['remove_id'])){
         $remove_id = $_POST['remove_id'];
 
-        $sql = "DELETE FROM enquiry_form WHERE id=".$remove_id;    
+        $sql = "DELETE FROM student_contact WHERE id=".$remove_id;    
         
         if ($conn->query($sql) === TRUE) {
             $_SESSION['msg'] = "Successfully Deleted!";
@@ -23,7 +23,7 @@
         }
     }
 
-    $sql = 'SELECT * FROM enquiry_form ORDER BY id DESC';
+    $sql = 'SELECT * FROM student_contact ORDER BY id DESC';
     $enquiry_form = $conn->query($sql);
   
 ?>
@@ -45,16 +45,15 @@
           <a href="account.php" class="list ">Profile</a>
           <a href="batches.php" class="list">Batches</a>
           <a href="career.php" class="list">Career</a>
-          <a href="contact.php" class="list">Contact</a>
           <a class="list" onclick="openLan()">Classes</a>
                 <div class="languages-dropdown" style="display: none;" id="open-classes">
                     <a href="french_classes.php" class="list ">French Classes</a>
                     <a href="spanish_classes.php" class="list ">Spanish Classes</a>
                     <a href="german_classes.php" class="list ">German Classes</a>
                 </div>
-          <a href="e-form.php" class="list active">Enquiry Form</a>
+          <a href="e-form.php" class="list">Enquiry Form</a>
           <a href="announcement.php" class="list">Announcement</a>
-          <a href="student_contact.php" class="list">Student's Enquiry</a>
+          <a href="student_contact.php" class="list active">Student's Enquiry</a>
           <a href="payment.php" class="list">Payments</a>
         </div>
       </div>
@@ -92,9 +91,9 @@
                 <a href="spnish_classes.php" class="list ">Spanish Classes</a>
                 <a href="german_classes.php" class="list ">German Classes</a>
             </div>
-          <a href="e-form.php" class="list active">Enquiry Form</a>
+          <a href="e-form.php" class="list">Enquiry Form</a>
           <a href="announcement.php" class="list">Announcement</a>
-          <a href="student_contact.php" class="list">Student's Enquiry</a>
+          <a href="student_contact.php" class="list active">Student's Enquiry</a>
           <a href="payment.php" class="list">Payments</a>
         </div>
       </div>
@@ -123,7 +122,7 @@
             </h4>
             <div class="card">
                 <nav class="navbar navbar-light border venue-registration border-bottom">
-                    <a class="h4 text-dark font-weight-bold pt-2">Enquiry Forms Submitted</a>
+                    <a class="h4 text-dark font-weight-bold pt-2">Student's Enquiry Forms Submitted</a>
                     <form class="form-inline">
                     </form>
                 </nav>
@@ -137,11 +136,9 @@
                                     <th scope="col" class="border-right text-center">Full Name</th>
                                     <th scope="col" class="border-right text-center">Number</th>   
                                     <th scope="col" class="border-right text-center">Email</th>  
-                                    <th scope="col" class="border-right text-center">Course</th> 
-                                    <th scope="col" class="border-right text-center">French Level</th>
-                                    <th scope="col" class="border-right text-center">German Level</th>
-                                    <th scope="col" class="border-right text-center">Spanish Level</th>      
-                                    <th scope="col" class="border-right text-center">Action</th>      
+                                    <th scope="col" class="border-right text-center">Course</th>      
+                                    <th scope="col" class="border-right text-center">Query</th>      
+                                    <th scope="col" class="border-right text-center">Action</th>
                                 </tr>
                                 </thead>
                                 <tbody> 
@@ -155,9 +152,7 @@
                                         <td class="border-right border-left text-center"><?php echo $data['number']; ?></td>
                                         <td class="border-right border-left text-center"><?php echo $data['email']; ?></td>
                                         <td class="border-right border-left text-center"><?php echo $data['course']; ?></td>
-                                        <td class="border-right border-left text-center"><?php echo $data['f_level']; ?></td>
-                                        <td class="border-right border-left text-center"><?php echo $data['g_level']; ?></td>
-                                        <td class="border-right border-left text-center"><?php echo $data['s_level']; ?></td>
+                                        <td class="border-right border-left text-center"><?php echo $data['query']; ?></td>
                                         <td>
                                             <button type="button" class="btn btn-danger" value="<?php echo $data['id']; ?>" onclick="remove(this.value)">Delete</button>    
                                         </td>  

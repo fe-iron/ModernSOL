@@ -53,7 +53,7 @@ body{
 }
 
 
-    .card-title {
+.card-title {
     margin-bottom: 0rem;
 }
 
@@ -125,7 +125,7 @@ body{
 <section class="login_admin">
 <div class="content">
 <nav class="navbar navbar-light bg-danger    sticky-top">
-    <a class="navbar-brand"><img src="../images/logo-2.png" width="50%" alt="">
+    <a href="../" class="navbar-brand"><img src="../images/logo-2.png" width="50%" alt="">
     <p class="mb-0">MODERN SCHOOL <br> OF LANGUAGES</p>
     </a>
     <form class="form-inline">

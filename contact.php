@@ -9,7 +9,10 @@
         // Sender info  
         $from = $senderName." <".$senderEmail.">";  
         $headers = "From: $from"; 
-  
+        
+        // Boundary  
+        $semi_rand = md5(time());  
+        $mime_boundary = "==Multipart_Boundary_x{$semi_rand}x";  
         
         // Headers for attachment  
         $headers .= "\nMIME-Version: 1.0\n" . "Content-Type: multipart/mixed;\n" . " boundary=\"{$mime_boundary}\"";  
@@ -52,13 +55,13 @@
         if($conn->query($query) === TRUE){
             $to = $email; 
             $from = 'info@modernsol.in';
-            $fromName = 'MOdern School Of Language(SOL)'; 
+            $fromName = 'Modern School Of Languages(MSOL)'; 
             
             $subject = 'Thank you for registration with Modern SOL';  
             
             
             $htmlContent = ' 
-                <center><h3>Thanks for Registration with Modern School of Language</h3></center><hr/>
+                <center><h3>Thanks for Registration with Modern School of Languages</h3></center><hr/>
                 <h4>These are the details that you have shared with us.</h4> <hr/>
                 <p><b>Full Name:</b> '.$name.'</p>
                 <p><b>Mobile Number:</b> '.$number.'</p>

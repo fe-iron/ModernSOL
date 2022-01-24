@@ -127,6 +127,10 @@ p, .german_content p, .why-learn-german-content p,
    height:20px;
 }
 
+#rupee:hover{
+  color: blue!important;
+}
+
 @media(max-width:768px){
   .social-links{
     display: none;
@@ -173,7 +177,7 @@ p, .german_content p, .why-learn-german-content p,
 			<div class="col-lg-9 col-md-9 col-12 personal-info">
 				<ul class="nav">
 					<li class="nav-item">
-						<a class="nav-link" href="tel:9431204127"><img src="images/call-24.png" alt="call-icon"> <span class="pl-2"> +919717071885</span> </a>
+						<a class="nav-link" href="tel:+919717071885"><img src="images/call-24.png" alt="call-icon"> <span class="pl-2"> +919717071885</span> </a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="mailto:info@modernsol.in"><img src="images/gmail-24.png" alt="call-icon"> <span class="pl-2"> info@modernsol.in</span></a>
@@ -183,7 +187,10 @@ p, .german_content p, .why-learn-german-content p,
 			</div>
       <div class="col-lg-3 col-md-3  social-links">
 				<ul class="nav justify-content-end">
-					<li class="nav-item facebook">
+          <li class="nav-item">
+						<a class="nav-link" href="https://www.facebook.com/modernschooloflanguage/" target="_blank" style="color: white;" id="rupee" data-bs-toggle="modal" data-bs-target="#pay_now"><img src="images/icons/rupee.png" alt="payment-icon"> Pay Now</a>
+					</li>
+          <li class="nav-item facebook">
 						<a class="nav-link" href="https://www.facebook.com/modernschooloflanguage/" target="_blank"><img src="images/facebook-30.png" alt="facebook-icon"></a>
 					</li>
 					<li class="nav-item instagram">
@@ -198,42 +205,3 @@ p, .german_content p, .why-learn-german-content p,
 		</div>
   </div>
 </section>
-
-
-
-<!-- <section class="">
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container">
-    <a class="navbar-brand" href="#"><img src="images/logo.png" alt=""></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarText">
-      <ul class="navbar-nav   mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">About Us</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Departments</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Memberships</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Help</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
-        </li>
-      </ul>
-      <span class="navbar-text">
-        <a href="" class="btn btn-outline-info">Sign In</a>
-      </span>
-    </div>
-  </div>
-</nav>
-</section> -->

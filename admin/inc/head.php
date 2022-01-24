@@ -5,6 +5,12 @@
     <title></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="portuguese language course in delhi fees , portuguese language course fees , learning italian for beginners ,
+    learn basic italian , best way to learn italian ,  italian language course online , italian language course near me , italian language course duration ,
+    italian language course in north delhi, italian language course fees, italian language course in delhi fees,
+    italian language course in india, portuguese language course near me, learn italian youtube, best free italian lessons online ,
+    learn italian pdf, how to learn italian quickly , japanese language course duration, japanese language course in north delhi,
+    learning mandarin for beginners, learn spanish youtube, best free spanish lessons online, spanish language course in delhi fees">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 

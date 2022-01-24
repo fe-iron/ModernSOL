@@ -110,91 +110,100 @@
             $f_level = "";
         }
 
-        $target_dir = "admin/upload/students/";
+        $query = "SELECT * FROM `students` WHERE email='$email'
+            and batch_fk='$batch'";
+        $result = mysqli_query($conn,$query) or die(mysqli_error());
+        $rows = mysqli_num_rows($result);
         
-        $flag1 = false;
-        // Valid file extensions
-        $extensions_arr = array("jpg","jpeg","png");
-
-        //saving first image
-        $img1 = $_FILES['file']['name'];
-        // echo $_FILES['photo']['name'];
-        $target_file1 = $target_dir . basename($_FILES["file"]["name"]);
-        // Select file type
-        $imageFileType1 = strtolower(pathinfo($target_file1,PATHINFO_EXTENSION));
-        
-        
-        // Check extension
-        if(in_array($imageFileType1,$extensions_arr) ){
-        // Upload file
-            if(move_uploaded_file($_FILES['file']['tmp_name'],$target_dir.$img1)){
-                // Insert record
-                $flag1 = true;
-            }
+        if($rows >= 1){
+            $_SESSION['error'] = "You are already enrolled in this Batch! Try with a different email.";
         }else{
-            // echo $kyc;
-            $_SESSION['error'] = 'Image Saving Failed! try again';
-            header("Location: register.php");
-        }
+            $target_dir = "admin/upload/students/";
         
-        $demo_password = $number;
+            $flag1 = false;
+            // Valid file extensions
+            $extensions_arr = array("jpg","jpeg","png");
 
-        $query = "INSERT into `students` (fname, lname, father_name, country, state, city, gender, dob, number, profession, email, course, aadhar, qualification, address, pin_code, file, placement, about_us, password, g_level, f_level, s_level, batch_fk) 
-                VALUES ('$fname', '$lname', '$faname', '$country', '$state', '$city', '$gender', '$dob', '$number', '$profession', '$email', '$course', '$aadhar', '$qualification', '$address', '$pin', '$img1', '$placement', '$about_us', '".md5($demo_password)."', '$g_level', '$f_level', '$s_level', '$batch')";
-
-        if($conn->query($query) === TRUE){
-            // Email configuration 
-            $to = $email; 
-            $from = 'info@modernsol.in';
-            $fromName = 'Modern School Of Languages(SOL)'; 
+            //saving first image
+            $img1 = $_FILES['file']['name'];
+            // echo $_FILES['photo']['name'];
+            $target_file1 = $target_dir . basename($_FILES["file"]["name"]);
+            // Select file type
+            $imageFileType1 = strtolower(pathinfo($target_file1,PATHINFO_EXTENSION));
             
-            $subject = 'Thank you for registration with Modern SOL';  
             
-            $htmlContent = ' 
-                <center><h3>Thanks for Registration with Modern School of Languages</h3></center><hr/>
-                <h4>These are the details that you have shared with us.</h4> <hr/>
-                <p><b>Full Name:</b> '.$fname.' '.$lname.'</p>
-                <p><b>Father Name:</b> '.$faname.'</p>
-                <p><b>Country:</b> '.$country.'</p>
-                <p><b>State:</b> '.$state.'</p>
-                <p><b>City:</b> '.$city.'</p>
-                <p><b>Gender:</b> '.$gender.'</p>
-                <p><b>Date of Birth:</b> '.$dob.'</p>
-                <p><b>Mobile Number:</b> '.$number.'</p>
-                <p><b>Profession:</b> '.$profession.'</p>
-                <p><b>Email:</b> '.$email.'</p>
-                <p><b>Course:</b> '.$course.'</p>
-                <p><b>Aadhar Number:</b> '.$aadhar.'</p>
-                <p><b>Highest Qualification:</b> '.$qualification.'</p>
-                <p><b>Address:</b> '.$address.'</p>
-                <p><b>Pin Code:</b> '.$pin.'</p>
-                <p><b>Would you like MSOL help you with placements:</b> '.$placement.'</p>
-                <p><b>How did you get to know about us?:</b> '.$about_us.'</p>';
-
-            $htmlContent = $htmlContent .'<hr/>
-            <p><b>Email: '.$email.'</b></p>Use the below credentials to login <br/>
-            <p><b>Your Password: '.$demo_password.'</b></p>
-            <p><b>To login please <a href="https://modernsol.in/user-profile/create-password.php">Click me</a></p>
-            <p>We suggest you to please change your password on your first login</p>';
-            
-            // Attachment files 
-            $files = array(
-                'admin/upload/students/'. $img1
-            ); 
-            
-            // Call function and pass the required arguments 
-            $sendEmail = multi_attach_mail($to, $subject, $htmlContent, $from, $fromName, $files); 
-            $sendEmail = multi_attach_mail('ziaakbargrs@gmail.com', $subject, $htmlContent, $from, $fromName, $files); 
-            
-            // Email sending status 
-            if($sendEmail){ 
-                $_SESSION['msg'] = "Successfully registered! and check your inbox/Spam for the confirmation mail.";
-            }else{ 
-                $_SESSION['msg'] = "Successfully registered! and Email sending failed!";
+            // Check extension
+            if(in_array($imageFileType1,$extensions_arr) ){
+            // Upload file
+                if(move_uploaded_file($_FILES['file']['tmp_name'],$target_dir.$img1)){
+                    // Insert record
+                    $flag1 = true;
+                }
+            }else{
+                // echo $kyc;
+                $_SESSION['error'] = 'Image Saving Failed! try again';
             }
-        }else{
-            // echo "Error: " . $query . "<br>" . $con->error;
-            $_SESSION['error'] = "Registration Failed! Try Again";
+            
+            $demo_password = $number;
+
+            $query = "INSERT into `students` (fname, lname, father_name, country, state, city, gender, dob, number, profession, email, course, aadhar, qualification, address, pin_code, file, placement, about_us, password, g_level, f_level, s_level, batch_fk) 
+                    VALUES ('$fname', '$lname', '$faname', '$country', '$state', '$city', '$gender', '$dob', '$number', '$profession', '$email', '$course', '$aadhar', '$qualification', '$address', '$pin', '$img1', '$placement', '$about_us', '".md5($demo_password)."', '$g_level', '$f_level', '$s_level', '$batch')";
+
+            if($conn->query($query) === TRUE){
+                // Email configuration 
+                $to = $email; 
+                $from = 'info@modernsol.in';
+                $fromName = 'Modern School Of Languages(SOL)'; 
+                
+                $subject = 'Thank you for registration with Modern SOL';  
+                
+                $htmlContent = ' 
+                    <center><h3>Thanks for Registration with Modern School of Languages</h3></center><hr/>
+                    <h4>These are the details that you have shared with us.</h4> <hr/>
+                    <p><b>Full Name:</b> '.$fname.' '.$lname.'</p>
+                    <p><b>Father Name:</b> '.$faname.'</p>
+                    <p><b>Country:</b> '.$country.'</p>
+                    <p><b>State:</b> '.$state.'</p>
+                    <p><b>City:</b> '.$city.'</p>
+                    <p><b>Gender:</b> '.$gender.'</p>
+                    <p><b>Date of Birth:</b> '.$dob.'</p>
+                    <p><b>Mobile Number:</b> '.$number.'</p>
+                    <p><b>Profession:</b> '.$profession.'</p>
+                    <p><b>Email:</b> '.$email.'</p>
+                    <p><b>Course:</b> '.$course.'</p>
+                    <p><b>Aadhar Number:</b> '.$aadhar.'</p>
+                    <p><b>Highest Qualification:</b> '.$qualification.'</p>
+                    <p><b>Address:</b> '.$address.'</p>
+                    <p><b>Pin Code:</b> '.$pin.'</p>
+                    <p><b>Would you like MSOL help you with placements:</b> '.$placement.'</p>
+                    <p><b>How did you get to know about us?:</b> '.$about_us.'</p>';
+
+                $htmlContent = $htmlContent .'<hr/>
+                <p><b>Email: '.$email.'</b></p>Use the below credentials to login <br/>
+                <p><b>Your Password: '.$demo_password.'</b></p>
+                <p><b>To login please <a href="https://modernsol.in/user-profile/create-password.php">Click me</a></p>
+                <p>We suggest you to please change your password on your first login</p>';
+                
+                // Attachment files 
+                $files = array(
+                    'admin/upload/students/'. $img1
+                ); 
+                
+                // Call function and pass the required arguments 
+                $sendEmail = multi_attach_mail($to, $subject, $htmlContent, $from, $fromName, $files); 
+                // $sendEmail = multi_attach_mail('ziaakbargrs@gmail.com', $subject, $htmlContent, $from, $fromName, $files); 
+                $sendEmail = multi_attach_mail('differences690@gmail.com', $subject, $htmlContent, $from, $fromName, $files); 
+                
+                // Email sending status 
+                if($sendEmail){ 
+                    $_SESSION['msg'] = "Successfully registered! and check your inbox/Spam for the confirmation mail.";
+                }else{ 
+                    $_SESSION['msg'] = "Successfully registered! and Email sending failed!";
+                }
+            }else{
+                // echo "Error: " . $query . "<br>" . $con->error;
+                $_SESSION['error'] = "Registration Failed! Try Again";
+            }
         }
     }
 

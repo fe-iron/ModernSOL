@@ -1,53 +1,63 @@
-<?php include_once 'inc/head.php'; ?>
+<?php 
+    session_start();
+    include 'auth.php';
+    include_once'inc/head.php'; ?>
+
 <?php
+  include '../admin/connection.php';
+  $conn = OpenCon();
 
-include '../admin/connection.php';
-include 'auth.php';
-$conn = OpenCon();
+  if (isset($_POST['submit'])) {
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
+    $faname = $_POST['faname'];
+    $country = $_POST['country'];
+    $state = $_POST['state'];
+    $city = $_POST['city'];
+    $gender = $_POST['gender'];
+    $dob = $_POST['dob'];
+    $number = $_POST['number'];
+    $profession = $_POST['profession'];
+    $qualification = $_POST['qualification'];
+    $aadhar = $_POST['aadhar'];
+    $pin = $_POST['pin'];
+    $address = $_POST['address'];
+    $password = $_POST['password'];
+    
+    $target_dir = "../admin/upload/students/";
 
-if (isset($_POST['submit'])) {
-  $name = $_POST['name'];
-  $fname = $_POST['fname'];
-  $dob = $_POST['dob'];
-  $number = $_POST['number'];
-  $password = $_POST['password'];
-  $qualification = $_POST['qualification'];
-  $aadhar = $_POST['aadhar'];
-  $target_dir = "../admin/upload/students/";
+    // Valid file extensions
+    $extensions_arr = array("jpg", "jpeg", "png");
 
-  // Valid file extensions
-  $extensions_arr = array("jpg", "jpeg", "png");
-
-  //saving first image
-  $img1 = $_FILES['file']['name'];
-  // echo $_FILES['photo']['name'];
-  $target_file1 = $target_dir . basename($_FILES["file"]["name"]);
-  // Select file type
-  $imageFileType1 = strtolower(pathinfo($target_file1, PATHINFO_EXTENSION));
+    //saving first image
+    $img1 = $_FILES['file']['name'];
+    // echo $_FILES['photo']['name'];
+    $target_file1 = $target_dir . basename($_FILES["file"]["name"]);
+    // Select file type
+    $imageFileType1 = strtolower(pathinfo($target_file1, PATHINFO_EXTENSION));
 
 
-  // Check extension
-  if (in_array($imageFileType1, $extensions_arr)) {
-    // Upload file
-    if (move_uploaded_file($_FILES['file']['tmp_name'], $target_dir . $img1)) {
-      // Insert record
-      $password = md5($password);
-      $email = $_SESSION['email'];
-      $query = "UPDATE students SET name='$name', fname='$fname', dob='$dob', aadhar='$aadhar', 
-                qualification='$qualification', file='$img1', password='$password' 
-                WHERE email='$email'";
+    // Check extension
+    if (in_array($imageFileType1, $extensions_arr)) {
+      // Upload file
+      if (move_uploaded_file($_FILES['file']['tmp_name'], $target_dir . $img1)) {
+        // Insert record
+        $password = md5($password);
+        $email = $_SESSION['email'];
+        
+        $query = "UPDATE students SET fname='$fname', lname='$lname', father_name='$faname', country='$country', state='$state', city='$city', gender='$gender', dob='$dob', aadhar='$aadhar', number='$number', profession='$profession', aadhar='$aadhar', qualification='$qualification', address='$address', pin_code='$pin', file='$img1', password='$password' WHERE email='$email'";
 
-      $result = $conn->query($query);
-      if ($result) {
-        $_SESSION['msg'] = "Successfully Updated your info!";
-      } else {
-        $_SESSION['error'] = "Your info did not get updated! try again";
+        $result = $conn->query($query);
+        if ($result) {
+          $_SESSION['msg'] = "Successfully Updated your info!";
+        } else {
+          $_SESSION['error'] = "Your info did not get updated! try again";
+        }
       }
+    } else {
+      $_SESSION['error'] = 'Image Saving Failed! try again';
     }
-  } else {
-    $_SESSION['error'] = 'Image Saving Failed! try again';
   }
-}
 ?>
 <link rel="stylesheet" type="text/css" href="inc/css/style.css">
 
@@ -58,19 +68,14 @@ if (isset($_POST['submit'])) {
     <div class="sidebar">
     <div class="logo">
             <a class="navbar-brand" href="index.php">
-                <img src="../images/logo-2.jpeg" alt="">
+                <img src="../images/logo-2.png" alt="">
             <p class="mb-0">MODERN SCHOOL <br> OF LANGUAGES</p></a>
             </div>
       <div class="pt-3">
         <div class="pt-3">
-          <a href="index.php" class="list ">My Course</a>
+          <a href="index.php" class="list ">Home</a>
           <a href="account.php" class="list active">Profile</a>
-          <a href="#" class="list " onclick="openLan()">Classes</a>
-                <div class="languages-dropdown" style="display: none;" id="open-classes">
-                <a href="french_classes.php" class="list ">French Classes</a>
-                    <a href="spanish_classes.php" class="list ">Spanish Classes</a>
-                    <a href="german_classes.php" class="list ">Germani Classes</a>
-                </div>
+          <a href="contact.php" class="list">Contact Us</a>
         </div>
       </div>
     </div>
@@ -88,7 +93,7 @@ if (isset($_POST['submit'])) {
             <div class="d-flex bd-highlight">
                 <div class=" bd-highlight">
                     <a href="index.php" class="small-sidenavbar">
-                    <img src="../images/logo-2.jpeg">
+                    <img src="../images/logo-2.png">
                     <p class="mb-0">MODERN SCHOOL <br> OF LANGUAGES</p></a>
                 </a>
                 </div>
@@ -96,14 +101,9 @@ if (isset($_POST['submit'])) {
             </div>
             </div>
         <div class="pt-3" id="sidebar-here">
-          <a href="index.php" class="list ">My Course</a>
+          <a href="index.php" class="list ">Home</a>
           <a href="account.php" class="list active">Profile</a>
-          <a href="#" class="list " onclick="openLan1()">Classes</a>
-                <div class="languages-dropdown" style="display: none;" id="open-classes1">
-                <a href="french_classes.php" class="list ">French Classes</a>
-                    <a href="spanish_classes.php" class="list ">Spanish Classes</a>
-                    <a href="german_classes.php" class="list ">Germani Classes</a>
-                </div>
+          <a href="contact.php" class="list">Contact Us</a>
         </div>
       </div>
     </div>
@@ -145,61 +145,112 @@ if (isset($_POST['submit'])) {
                 <form action=" " method="post" enctype="multipart/form-data">
                   <div class="form-row">
                     <div class="col-md mb-3">
-                      <label>Applicant Name</label>
-                      <input type="text" class="form-control" id="name" disabled="disabled" placeholder="Applicant's Name" name="name">
+                      <label>First Name</label>
+                      <input type="text" class="form-control" id="fname" disabled="disabled" placeholder="First Name" name="fname" required>
+                    </div>
+                    <div class="col-md mb-3">
+                      <label>Last Name</label>
+                      <input type="text" class="form-control" id="lname" disabled="disabled" placeholder="Last Name" name="lname" required>
                     </div>
                     <div class="col-md mb-3">
                       <label>Father Name</label>
-                      <input type="text" class="form-control" id="name1" disabled="disabled" placeholder="Father Name" name="fname">
+                      <input type="text" class="form-control" id="name1" disabled="disabled" placeholder="Father's Name" name="faname" required>
                     </div>
                   </div>
 
                   <div class="form-row">
+                    <div class="col-md mb-3">
+                      <label>Country</label>
+                      <input type="text" class="form-control" id="country" disabled="disabled" placeholder="Country" name="country" required>
+                    </div>
+                    <div class="col-md mb-3">
+                      <label>State</label>
+                      <input type="text" class="form-control" id="state" disabled="disabled" placeholder="State" name="state" required>
+                    </div>
+                    <div class="col-md mb-3">
+                      <label>City</label>
+                      <input type="text" class="form-control" id="city" disabled="disabled" placeholder="City" name="city" required>
+                    </div>
+                  </div>
+
+
+                  <div class="form-row">
+
+                    <div class="col-md mb-3">
+                        <label>Gender</label>
+                        <select class="form-select form-control" aria-label="Default select example" name="gender" id="gender" disabled required>
+                            <option value="none">Select Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="col-md mb-3">
+                      <label>DOB*</label>
+                      <input type="date" class="form-control" disabled="disabled" placeholder="DOB" maxlength="12" id="dob" name="dob" required>
+                    </div>
 
                     <div class="col-md mb-3">
                       <label>Contact Phone Number</label>
-                      <input type="tel" class="form-control" disabled="disabled" placeholder="Telephone Number" maxlength="12" minlength="10" id="name11" name="number">
+                      <input type="tel" class="form-control" disabled="disabled" placeholder="Telephone Number" maxlength="12" minlength="10" id="name11" name="number" required>
                     </div>
+
                   </div>
 
-
+                  
                   <div class="form-row">
-                    <div class="col-md mb-3">
-                      <label>Email</label>
-                      <input type="email" class="form-control" id="name3" disabled="disabled" value="<?php if (isset($_SESSION['email'])) {
-                                                                                                        echo $_SESSION['email'];
-                                                                                                      } else {
-                                                                                                        echo "Your Email";
-                                                                                                      } ?>" readonly>
-                    </div>
-                    <div class="col-md mb-3">
-                      <label>Paasword</label>
-                      <input type="password" class="form-control" id="name4" disabled="disabled" placeholder="Password" name="password">
-                    </div>
-                    <div class="col-md mb-3">
-                      <label>Date Of Birth</label>
-                      <input type="date" class="form-control" id="dob" disabled="disabled" placeholder="Date Of Birth" name="dob">
-                    </div>
-                  </div>
 
-                  <div class="form-row">
+                    <div class="col-md mb-3">
+                      <label>Profession</label>
+                      <input type="text" class="form-control" disabled="disabled" placeholder="Profession" id="profession" name="profession" required>
+                    </div>
+
+                    <div class="col-md mb-3">
+                        <label>Email</label>
+                        <input type="email" class="form-control" id="name3" disabled="disabled" value="
+                        <?php if (isset($_SESSION['email'])) {
+                                echo $_SESSION['email'];
+                              } else {
+                                echo "Your Email";
+                              } ?>" readonly>
+                    </div>
+
                     <div class="col-md mb-3">
                       <label>Highest Qualification</label>
-                      <input type="text" class="form-control" disabled="disabled" placeholder="Address" id="qualification" name="qualification">
+                      <input type="text" class="form-control" disabled="disabled" placeholder="Highest Qualification" id="qualification" name="qualification" required>
                     </div>
-                    <div class="col-md mb-3">
-                      <label>Adhar Card Number</label>
-                      <input type="text" class="form-control" disabled="disabled" placeholder="Adhar Number" id="name6" name="aadhar">
-                    </div>
+                    
                   </div>
                   <div class="form-row">
+                    
+                    <div class="col-md mb-3">
+                      <label>Aadhar Card Number</label>
+                      <input type="text" class="form-control" disabled="disabled" placeholder="Adhar Number" id="name6" name="aadhar" required>
+                    </div>
 
                     <div class="col-md mb-3">
                       <label>Upload Image</label>
-                      <input type="file" id="file_type" name="file" disabled>
+                      <input type="file" id="file_type" name="file" disabled required>
                     </div>
                   </div>
 
+                  <div class="form-row">
+                    
+                    <div class="col-md mb-3">
+                      <label>Address</label>
+                      <input type="text" class="form-control" disabled="disabled" placeholder="Address" id="address" name="address" required>
+                    </div>
+
+                    <div class="col-md mb-3">
+                      <label>Pin Code</label>
+                      <input type="number" class="form-control" disabled="disabled" placeholder="Pin Code" id="pin" name="pin" required>
+                    </div>
+                    <div class="col-md mb-3">
+                      <label>Paasword</label>
+                      <input type="password" class="form-control" id="name4" disabled="disabled" placeholder="Password" name="password" required>
+                    </div>
+                  </div>
 
                   <div class="form-row my-3">
                     <div class="col-md mb-2">
@@ -215,13 +266,6 @@ if (isset($_POST['submit'])) {
   </section>
 
 
-
-
-  <!-- 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
-</button>
--->
 
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -304,23 +348,23 @@ if (isset($_POST['submit'])) {
   <script>
     function enable() {
       document.getElementById('file_type').disabled = false;
-      document.getElementById("name").disabled = false;
-      document.getElementById("name").placeholder = "Enter Name";
+      document.getElementById("fname").disabled = false;
+      document.getElementById("lname").disabled = false;
       document.getElementById("name1").disabled = false;
-      document.getElementById("name1").placeholder = "Enter Father Name";
       document.getElementById("name2").disabled = false;
-      document.getElementById("name2").placeholder = "Enter Course";
+      document.getElementById("country").disabled = false;
+      document.getElementById("state").disabled = false;
+      document.getElementById("city").disabled = false;
+      document.getElementById("gender").disabled = false;
+      document.getElementById("profession").disabled = false;
+      document.getElementById("address").disabled = false;
+      document.getElementById("pin").disabled = false;
+
       document.getElementById("name3").disabled = false;
       document.getElementById("name4").disabled = false;
-      document.getElementById("dob").placeholder = "Enter Password";
       document.getElementById("dob").disabled = false;
-      document.getElementById("name4").placeholder = "Enter Date OF Birth";
       document.getElementById("qualification").disabled = false;
-      document.getElementById("qualification").placeholder = "Enter Highest Qualification";
       document.getElementById("name6").disabled = false;
-      document.getElementById("name6").placeholder = "Enter Adhar Number";
       document.getElementById("name11").disabled = false;
-      document.getElementById("name11").placeholder = "Enter Contact Phone";
-
     }
   </script>

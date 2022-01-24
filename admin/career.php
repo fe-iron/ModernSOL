@@ -24,7 +24,7 @@
         }
     }
 
-    $sql = 'SELECT * FROM career';
+    $sql = 'SELECT * FROM career ORDER BY id DESC';
     $enquiry_form = $conn->query($sql);
     
     
@@ -47,6 +47,7 @@
           <a href="account.php" class="list ">Profile</a>
           <a href="batches.php" class="list">Batches</a>
           <a href="career.php" class="list active">Career</a>
+          <a href="contact.php" class="list">Contact</a>
           <a class="list" onclick="openLan()">Classes</a>
                 <div class="languages-dropdown" style="display: none;" id="open-classes">
                     <a href="french_classes.php" class="list ">French Classes</a>
@@ -55,6 +56,8 @@
                 </div>
           <a href="e-form.php" class="list">Enquiry Form</a>
           <a href="announcement.php" class="list">Announcement</a>
+          <a href="student_contact.php" class="list">Student's Enquiry</a>
+          <a href="payment.php" class="list">Payments</a>
         </div>
       </div>
     </div>
@@ -84,6 +87,7 @@
           <a href="account.php" class="list ">Profile</a>
           <a href="batches.php" class="list">Batches</a>
           <a href="career.php" class="list active">Career</a>
+          <a href="contact.php" class="list">Contact</a>
           <a class="list " onclick="openLan1()">Classes</a>
             <div class="languages-dropdown" style="display: none;" id="open-classes1">
                 <a href="french_classes.php" class="list ">French Classes</a>
@@ -92,6 +96,8 @@
             </div>
           <a href="e-form.php" class="list">Enquiry Form</a>
           <a href="announcement.php" class="list">Announcement</a>
+          <a href="student_contact.php" class="list">Student's Enquiry</a>
+          <a href="payment.php" class="list">Payments</a>
         </div>
       </div>
     </div>
@@ -119,7 +125,7 @@
             </h4>
             <div class="card">
                 <nav class="navbar navbar-light border venue-registration border-bottom">
-                    <a class="h4 text-dark font-weight-bold pt-2">Career Form Submitted</a>
+                    <a class="h4 text-dark font-weight-bold pt-2">Career Forms</a>
                     <form class="form-inline">
                     </form>
                 </nav>
@@ -147,7 +153,7 @@
                                         $count = $count + 1; ?>
                                         <tr class="border-bottom">
                                         <td class="border-right border-left text-center"><?php echo $count; ?></td>
-                                        <td class="border-right border-left text-center"><?php echo $data['created_on']; ?></td>
+                                        <td class="border-right border-left text-center"><?php echo substr($data['created_on'], 0, 10); ?></td>
                                         <td class="border-right border-left text-center"><?php echo $data['name']; ?></td>
                                         <td class="border-right border-left text-center"><?php echo $data['number']; ?></td>
                                         <td class="border-right border-left text-center"><?php echo $data['email']; ?></td>

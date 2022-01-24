@@ -42,12 +42,12 @@
 
     
 <style>
-
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
 .content{
     margin-left: 0px;
 }
 </style>
+
 <style type="text/css">
 
 .bg-warning{
@@ -61,7 +61,7 @@ body{
 }
 
 
-    .card-title {
+.card-title {
     margin-bottom: 0rem;
 }
 
@@ -77,22 +77,66 @@ body{
 }
 
 
+.login_admin .navbar-brand{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.login_admin .navbar-brand img{
+    width: 65px;
+}
+
+.login_admin .navbar-brand p {
+    font-size: 20px;
+    margin-left: 10px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: #10bcc5;
+    line-height: 1.2;
+}
+
+
+
+
 @media (min-width: 700px){
     .open-nav
     {
         display: none;
     }
+
+
+}
+
+
+@media(max-width:700px){
+        
+.login_admin  .navbar-brand p {
+    font-size: 12px;
+    margin-left: 10px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: #10bcc5;
+    line-height: 1.2;
+}
+
+
+.login_admin  .navbar-brand img {
+    width: 50px;
+}
 }
 
 </style>
 
 <body>
 
-    <section>
+<section class="login_admin">
 
 <div class="content">
 <nav class="navbar navbar-light bg-danger    sticky-top">
-    <a class="navbar-brand"><img src="../images/logo.png" width="50%" alt=""></a>
+    <a href="../" class="navbar-brand"><img src="../images/logo-2.png" width="50%" alt="">
+        <p class="mb-0">MODERN SCHOOL <br> OF LANGUAGES</p>
+    </a>
     <form class="form-inline">
         <div class="btn-group">
             <button type="button" class="btn btn-info text-white">
