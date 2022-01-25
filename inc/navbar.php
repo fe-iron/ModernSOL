@@ -161,7 +161,13 @@ box-shadow: 0px -2px 14px -4px rgb(173 163 173);
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/"><img src="images/logo-2.png" alt=""><p class="mb-0">MODERN SCHOOL <br> OF LANGUAGES</p></a>
+    <a class="navbar-brand" href="/">
+      <img src="images/logo-2.png" alt="">
+      <div>
+        <p class="mb-0">MODERN SCHOOL <br> OF LANGUAGES <br></p>
+        <p style="font-size: 10px;margin-bottom:0rem;color:grey;">An ISO 9001:2015 Certified Institute</p>
+      </div>
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -214,7 +220,7 @@ box-shadow: 0px -2px 14px -4px rgb(173 163 173);
         <a href="register.php" class="btn btn-info text-white">REGISTER</a>
       </span>
       <span class="navbar-text">
-        <a href="user-profile/" class="btn btn-info text-white">Login</a>
+        <a href="user-profile/" class="btn btn-info text-white">LOGIN</a>
       </span>
     </div>
   </div>

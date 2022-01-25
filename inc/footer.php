@@ -85,17 +85,18 @@
                     <h3>Languages</h3>
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><span><i class="fas fa-check"></i> </span>French</a>
+                            <a class="nav-link" href="french.php"><span><i class="fas fa-check"></i> </span>French</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><span><i class="fas fa-check"></i> </span>German</a>
+                            <a class="nav-link" href="german.php"><span><i class="fas fa-check"></i> </span>German</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><span><i class="fas fa-check"></i> </span>Spanish</a>
+                            <a class="nav-link" href="spanish.php"><span><i class="fas fa-check"></i> </span>Spanish</a>
                         </li>
                     </ul>
                 </div>
 
+                
                 <div class="col-md-3 col-xs-2 mb-4">
                     <h3>Contact Info</h3>
                     <ul class="nav flex-column">
@@ -103,7 +104,7 @@
                             <a class="nav-link" href="tel:9717071885"><img src="images/icons/call.png" alt=""> +91-9717071885</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="https://wa.me/+916392353441"><img src="images/icons/sms.png" alt=""> +91-6392353441</a>
+                            <a class="nav-link" href="https://wa.me/+916392353441"><img src="images/icons/icons8-whatsapp-24.png" alt=""> +91-6392353441</a>
                         </li>
                     </ul>
                     <ul class="list-inline pt-3">

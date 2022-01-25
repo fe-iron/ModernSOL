@@ -40,6 +40,10 @@
           <a href="announcement.php" class="list">Announcement</a>
           <a href="student_contact.php" class="list">Student's Enquiry</a>
           <a href="payment.php" class="list">Payments</a>
+          <a href="spanish_student.php" class="list">Spanish Students</a>
+          <a href="french_student.php" class="list">French Students</a>
+          <a href="german_student.php" class="list">German Students</a>
+          <a href="all_student.php" class="list">All Students</a>
         </div>
       </div>
     </div>
@@ -80,6 +84,10 @@
           <a href="announcement.php" class="list">Announcement</a>
           <a href="student_contact.php" class="list">Student's Enquiry</a>
           <a href="payment.php" class="list">Payments</a>
+          <a href="spanish_student.php" class="list">Spanish Students</a>
+          <a href="french_student.php" class="list">French Students</a>
+          <a href="german_student.php" class="list">German Students</a>
+          <a href="all_student.php" class="list">All Students</a>
         </div>
       </div>
     </div>

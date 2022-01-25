@@ -140,6 +140,11 @@ p, .german_content p, .why-learn-german-content p,
     color: white;
     font-size: 14px;
 }
+
+.email-none{
+    display: none;
+}
+
 .top-header{
   background-color: #C52437;
        padding: 0rem .5rem;
@@ -179,18 +184,17 @@ p, .german_content p, .why-learn-german-content p,
 					<li class="nav-item">
 						<a class="nav-link" href="tel:+919717071885"><img src="images/call-24.png" alt="call-icon"> <span class="pl-2"> +919717071885</span> </a>
 					</li>
-					<li class="nav-item">
+					<li class="nav-item email-none">
 						<a class="nav-link" href="mailto:info@modernsol.in"><img src="images/gmail-24.png" alt="call-icon"> <span class="pl-2"> info@modernsol.in</span></a>
 					</li>
-
+                    <li class="nav-item">
+        			<a class="nav-link" href="https://www.facebook.com/modernschooloflanguage/" target="_blank" style="color: white;" id="rupee" data-bs-toggle="modal" data-bs-target="#pay_now"><img src="images/icons/rupee.png" alt="payment-icon"> Pay Now</a>
+        		  </li>
 				</ul>
 			</div>
       <div class="col-lg-3 col-md-3  social-links">
 				<ul class="nav justify-content-end">
-          <li class="nav-item">
-						<a class="nav-link" href="https://www.facebook.com/modernschooloflanguage/" target="_blank" style="color: white;" id="rupee" data-bs-toggle="modal" data-bs-target="#pay_now"><img src="images/icons/rupee.png" alt="payment-icon"> Pay Now</a>
-					</li>
-          <li class="nav-item facebook">
+                  <li class="nav-item facebook">
 						<a class="nav-link" href="https://www.facebook.com/modernschooloflanguage/" target="_blank"><img src="images/facebook-30.png" alt="facebook-icon"></a>
 					</li>
 					<li class="nav-item instagram">
@@ -198,6 +202,9 @@ p, .german_content p, .why-learn-german-content p,
 					</li>
 					<li class="nav-item twitter">
 						<a class="nav-link" href="https://twitter.com/Modernsol1" target="_blank"><img src="images/twitter-30.png" alt="twiiter-icon"></a>
+					</li>
+          <li class="nav-item twitter">
+						<a class="nav-link" href="https://www.linkedin.com/company/modernschooloflanguages" target="_blank"><img src="images/icons/lin(2).png" alt="twiiter-icon"></a>
 					</li>
 
 				</ul>

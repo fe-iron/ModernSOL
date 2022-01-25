@@ -76,6 +76,10 @@
                <a href="announcement.php" class="list">Announcement</a>
                <a href="student_contact.php" class="list">Student's Enquiry</a>
                <a href="payment.php" class="list">Payments</a>
+               <a href="spanish_student.php" class="list">Spanish Students</a>
+                <a href="french_student.php" class="list">French Students</a>
+                <a href="german_student.php" class="list">German Students</a>
+                <a href="all_student.php" class="list">All Students</a>
             </div>
        </div>
 
@@ -111,6 +115,10 @@
                 <a href="announcement.php" class="list">Announcement</a>
                 <a href="student_contact.php" class="list">Student's Enquiry</a>
                 <a href="payment.php" class="list">Payments</a>
+                <a href="spanish_student.php" class="list">Spanish Students</a>
+                <a href="french_student.php" class="list">French Students</a>
+                <a href="german_student.php" class="list">German Students</a>
+                <a href="all_student.php" class="list">All Students</a>
             </div>
             </div>
             </div>
@@ -129,7 +137,7 @@
                     <div class="counter-icon">
                         <i class="fa fa-user-plus"></i>
                     </div>
-                    <h3>German Registration</h3>
+                    <a href="german_student.php" style="text-decoration:none; color: aliceblue;"><h3>German Registration</h3></a>
                     <span class="counter-value"><?php echo $german_count; ?></span>
                 </div>
             </div>
@@ -138,7 +146,7 @@
                     <div class="counter-icon">
                         <i class="fa fa-user-plus"></i>
                     </div>
-                    <h3>French Registration</h3>
+                    <a href="french_student.php" style="text-decoration:none; color: aliceblue;"><h3>French Registration</h3></a>
                     <span class="counter-value"><?php echo $french_count; ?></span>
                 </div>
             </div>
@@ -147,7 +155,7 @@
                     <div class="counter-icon">
                         <i class="fa fa-user-plus"></i>
                     </div>
-                    <h3>Spanish Registration</h3>
+                    <a href="spanish_student.php" style="text-decoration:none; color: aliceblue;"><h3>Spanish Registration</h3></a>
                     <span class="counter-value"><?php echo $spanish_count; ?></span>
                 </div>
             </div>
@@ -156,7 +164,7 @@
                     <div class="counter-icon">
                         <i class="fa fa-graduation-cap"></i>
                     </div>
-                    <h3>Total Registration</h3>
+                    <a href="all_student.php" style="text-decoration:none; color: aliceblue;"><h3>Total Registration</h3><a>
                     <span class="counter-value"><?php echo $total_regis; ?></span>
                 </div>
             </div>

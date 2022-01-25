@@ -58,6 +58,29 @@
       $_SESSION['error'] = 'Image Saving Failed! try again';
     }
   }
+
+  $query = 'SELECT * FROM students where email="'.$_SESSION['email'].'" ORDER BY id DESC LIMIT 1';
+  $student = $conn->query($query);
+  if ($student->num_rows > 0) {
+    // output data of each row
+    while($row = $student->fetch_assoc()){
+      $fname = $row['fname'];
+      $lname = $row['lname'];
+      $faname = $row['father_name'];
+      $country = $row['country'];
+      $state = $row['state'];
+      $city = $row['city'];
+      $gender = $row['gender'];
+      $dob = $row['dob'];
+      $number = $row['number'];
+      $profession = $row['profession'];
+      $qualification = $row['qualification'];
+      $aadhar = $row['aadhar'];
+      $image = $row['file'];
+      $address = $row['address'];
+      $pin = $row['pin_code'];
+    }
+  }
 ?>
 <link rel="stylesheet" type="text/css" href="inc/css/style.css">
 
@@ -146,30 +169,30 @@
                   <div class="form-row">
                     <div class="col-md mb-3">
                       <label>First Name</label>
-                      <input type="text" class="form-control" id="fname" disabled="disabled" placeholder="First Name" name="fname" required>
+                      <input type="text" class="form-control" id="fname" disabled="disabled" placeholder="First Name" value="<?php echo $fname; ?>" name="fname" required>
                     </div>
                     <div class="col-md mb-3">
                       <label>Last Name</label>
-                      <input type="text" class="form-control" id="lname" disabled="disabled" placeholder="Last Name" name="lname" required>
+                      <input type="text" class="form-control" id="lname" disabled="disabled" placeholder="Last Name" value="<?php echo $lname; ?>" name="lname" required>
                     </div>
                     <div class="col-md mb-3">
                       <label>Father Name</label>
-                      <input type="text" class="form-control" id="name1" disabled="disabled" placeholder="Father's Name" name="faname" required>
+                      <input type="text" class="form-control" id="name1" disabled="disabled" placeholder="Father's Name" value="<?php echo $faname; ?>" name="faname" required>
                     </div>
                   </div>
 
                   <div class="form-row">
                     <div class="col-md mb-3">
                       <label>Country</label>
-                      <input type="text" class="form-control" id="country" disabled="disabled" placeholder="Country" name="country" required>
+                      <input type="text" class="form-control" id="country" disabled="disabled" placeholder="Country" value="<?php echo $country; ?>" name="country" required>
                     </div>
                     <div class="col-md mb-3">
                       <label>State</label>
-                      <input type="text" class="form-control" id="state" disabled="disabled" placeholder="State" name="state" required>
+                      <input type="text" class="form-control" id="state" disabled="disabled" value="<?php echo $state; ?>" placeholder="State" name="state" required>
                     </div>
                     <div class="col-md mb-3">
                       <label>City</label>
-                      <input type="text" class="form-control" id="city" disabled="disabled" placeholder="City" name="city" required>
+                      <input type="text" class="form-control" id="city" disabled="disabled" value="<?php echo $city; ?>" placeholder="City" name="city" required>
                     </div>
                   </div>
 
@@ -179,21 +202,39 @@
                     <div class="col-md mb-3">
                         <label>Gender</label>
                         <select class="form-select form-control" aria-label="Default select example" name="gender" id="gender" disabled required>
-                            <option value="none">Select Gender</option>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                            <option value="other">Other</option>
+                          <?php if($gender == 'male'){
+                              echo '<option selected value="male">Male</option>';
+                              $male_flag = 1;
+                          }elseif($gender == 'female'){
+                            echo '<option value="female" selected>Female</option>';
+                            $female_flag = 1;
+                          }else{
+                            echo '<option value="other" selected>Other</option>';
+                            $other_flag = 1;
+                          }  
+                          
+                          if($male_flag == 1){
+                            echo '<option value="female">Female</option>';
+                            echo '<option value="other">Other</option>';
+                          }elseif($female_flag == 1){
+                            echo '<option value="male">Male</option>';
+                            echo '<option value="other">Other</option>';
+                          }else{
+                            echo '<option value="male">Male</option>';
+                            echo '<option value="female">Female</option>';
+                          }
+                          ?>
                         </select>
                     </div>
                     
                     <div class="col-md mb-3">
                       <label>DOB*</label>
-                      <input type="date" class="form-control" disabled="disabled" placeholder="DOB" maxlength="12" id="dob" name="dob" required>
+                      <input type="date" class="form-control" disabled="disabled" value="<?php echo $dob; ?>" placeholder="DOB" maxlength="12" id="dob" name="dob" required>
                     </div>
 
                     <div class="col-md mb-3">
                       <label>Contact Phone Number</label>
-                      <input type="tel" class="form-control" disabled="disabled" placeholder="Telephone Number" maxlength="12" minlength="10" id="name11" name="number" required>
+                      <input type="tel" class="form-control" disabled="disabled" placeholder="Telephone Number" value="<?php echo $number; ?>" maxlength="12" minlength="10" id="name11" name="number" required>
                     </div>
 
                   </div>
@@ -203,7 +244,7 @@
 
                     <div class="col-md mb-3">
                       <label>Profession</label>
-                      <input type="text" class="form-control" disabled="disabled" placeholder="Profession" id="profession" name="profession" required>
+                      <input type="text" class="form-control" disabled="disabled" placeholder="Profession" value="<?php echo $profession; ?>" id="profession" name="profession" required>
                     </div>
 
                     <div class="col-md mb-3">
@@ -218,7 +259,7 @@
 
                     <div class="col-md mb-3">
                       <label>Highest Qualification</label>
-                      <input type="text" class="form-control" disabled="disabled" placeholder="Highest Qualification" id="qualification" name="qualification" required>
+                      <input type="text" class="form-control" disabled="disabled" value="<?php echo $qualification; ?>" placeholder="Highest Qualification" id="qualification" name="qualification" required>
                     </div>
                     
                   </div>
@@ -226,7 +267,7 @@
                     
                     <div class="col-md mb-3">
                       <label>Aadhar Card Number</label>
-                      <input type="text" class="form-control" disabled="disabled" placeholder="Adhar Number" id="name6" name="aadhar" required>
+                      <input type="text" class="form-control" disabled="disabled" value="<?php echo $aadhar; ?>" placeholder="Adhar Number" id="name6" name="aadhar" required>
                     </div>
 
                     <div class="col-md mb-3">
@@ -239,12 +280,12 @@
                     
                     <div class="col-md mb-3">
                       <label>Address</label>
-                      <input type="text" class="form-control" disabled="disabled" placeholder="Address" id="address" name="address" required>
+                      <input type="text" class="form-control" disabled="disabled" value="<?php echo $address; ?>" placeholder="Address" id="address" name="address" required>
                     </div>
 
                     <div class="col-md mb-3">
                       <label>Pin Code</label>
-                      <input type="number" class="form-control" disabled="disabled" placeholder="Pin Code" id="pin" name="pin" required>
+                      <input type="number" class="form-control" disabled="disabled" value="<?php echo $pin; ?>" placeholder="Pin Code" id="pin" name="pin" required>
                     </div>
                     <div class="col-md mb-3">
                       <label>Paasword</label>
